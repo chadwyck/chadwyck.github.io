@@ -1,0 +1,25 @@
+doctype
+html
+  head
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    block title
+    link(rel='stylesheet', href='./stylesheets/style.css')
+    meta(name="viewport" content="initial-scale=1")
+
+    script(src='./javascripts/jquery_2.1.0.js')
+    script(src='./javascripts/jquery_ui_1.10.4.min.js')
+    script(src='./javascripts/front.js')
+
+  body
+    div.navbar
+        a#brand(href='./index.html')
+            img.brandImg(src='./images/FractalFlame2.jpg')
+        a.navLinks(href='./quatern.html') Quaternion Fractals
+        a.navLinks(href='./flames.html') 3D Fractal Flames
+
+
+    .container
+        block content
+
+    footer
+      p &copy 2014 - Aaron Golliver, Gabe Glenn, Chadwick Jones

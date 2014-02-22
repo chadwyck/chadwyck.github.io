@@ -1,0 +1,147 @@
+/*
+ * Import nib
+ */
+/*
+ * Grab a custom font from Google
+ */
+@import url("http://fonts.googleapis.com/css?family=Istok+Web");
+html {
+  overflow-y: scroll;
+}
+body {
+  font-family: 'Istok Web';
+  background-color: #ebebeb;
+  color: #444;
+  margin: 0;
+}
+.navbar {
+  padding: 0px 15%;
+  font-size: 20px;
+  background-color: #000;
+  height: 60px;
+  overflow: visible;
+  color: #fff;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.mainTitle {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 2vw;
+  display: inline-block;
+}
+.mainTitle h2 {
+  display: inline-block;
+  position: relative;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  top: -4vw;
+}
+.titleImg {
+  height: 10vw;
+  display: inline-block;
+}
+#brand {
+  float: left;
+  padding: 6px;
+  top: 0px;
+  display: inline;
+  width: 100px;
+}
+.brandImg {
+  height: 48px;
+}
+#signup {
+  color: #c1333f;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.navLinks {
+  margin: 12px;
+  position: relative;
+  line-height: 62px;
+  top: 0;
+  height: 40px;
+  padding: 15px;
+  transition: background 0.2s ease-in-out;
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -ms-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  background-color: #0d0d0d;
+}
+.navLinks:hover {
+  background-color: #262626;
+}
+.pictureCenter {
+  display: inline-block;
+  margin: 10px;
+  max-height: 400px;
+  max-width: 90%;
+}
+.picContain {
+  text-align: center;
+}
+h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+.browseCat {
+  margin-left: 50px;
+}
+.browseCat > p {
+  margin-bottom: 15px;
+}
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 50px auto;
+  overflow: hidden;
+}
+.resultsPanel {
+  width: 90%;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #dadada;
+  padding: 3%;
+  margin-bottom: 70px;
+}
+.container > h1 {
+  margin-left: 5%;
+  margin-bottom: 20px;
+  color: #c1333f;
+}
+p {
+  line-height: 1.8;
+}
+footer {
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 13px;
+  position: fixed;
+  background-color: #000;
+  color: #fff;
+}
+#landingReel {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

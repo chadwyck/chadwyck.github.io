@@ -1,0 +1,37 @@
+extend layout
+block title
+  title 3D Fractal Flames - 3D/4D Fractals
+
+block content
+  div.mainTitle 
+    img.titleImg(src='./images/FractalFlame2.jpg')
+    h2 3D Fractal Flames
+    img.titleImg(src='./images/FractalFlame1.jpg')
+
+  h1.resultsTitle Algorithm
+  div.resultsPanel
+    p We extended Scott Draves’ fractal flame algorithm into the third dimension. We did this by adding a third dimension to the all points, affine transformations, and variation functions present in the IFS.
+
+    p The functions we iterated were of the form
+
+    div.picContain
+      img.pictureCenter(src='./images/equation1.png')
+
+    p We had to develop our own variation functions in order to get good output in the 3D images. The main function we employed was:
+
+    div.picContain
+      img.pictureCenter(src='./images/equation2.png')
+
+  h1.resultsTitle Plotting point cloud
+  div.resultsPanel
+    p The program displays the flames by first creating the histograms for each camera. Then continuously generating new points, mapping to each frame (using perspective), and plotting into the histograms. The slowest part of this algorithm is the cache miss associated with the plotting.
+
+    p To make the pictures higher quality while using A smaller number of points, we applied anti-aliasing techniques to mask areas of low density.
+
+  h1.resultsTitle Results
+  div.resultsPanel
+    div.picContain
+      img.pictureCenter(src='./images/FractalFlame3.jpg')
+    div.picContain
+      img.pictureCenter(src='./images/animation1.gif')
+  

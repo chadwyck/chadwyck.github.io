@@ -1,0 +1,90 @@
+extend layout
+block title
+  title Quaternion Fractals - 3D/4D Fractals
+
+block content
+  div.mainTitle 
+    img.titleImg(src='./images/allTogether_trans.png')
+    h2 Quaternion Fractals
+    img.titleImg(src='./images/example_trans.png')
+  h1.resultsTitle Background and Fractal Generation
+  div.resultsPanel
+    p A quaternion is complex vector. This means that it has a real part, a, and then three imaginary parts, i, j, and k. So, we have this Quaternion, z. We then use the model:
+    div.picContain
+      img.pictureCenter(src='./images/equat_1.png')
+
+    p Which if we apply to itself repeatedly we are able to generate a fractal that is based on what we set c to. This process looks something like this:
+
+    div.picContain
+      img.pictureCenter(src='./images/equat_2.png')
+
+    p If we use the above limit, for c = 0, will have one of three results:
+
+    div.picContain
+      img.pictureCenter(src='./images/equat_3_2.png', style='width:40px;') 
+      | , 
+      img.pictureCenter(src='./images/equat_3_1.png')
+
+    p If the magnitude of z is equal to 1 we know that the input is on the surface of the fractal. In this case the surface is simply a sphere.
+
+    p For c != 0 we have the equation:
+
+    div.picContain
+      p
+        img.pictureCenter(src='./images/equat_4_1.png', style='width:40px;')
+        | , 
+        img.pictureCenter(src='./images/equat_4_2.png')
+
+    p The third result is the non-converging area, the strange attractor, and is what we are modeling.
+
+  h1.resultsTitle Ray marching explaination
+  div.resultsPanel
+    p So, the next step is to somehow isolate the fractal in space and from there represent it. A naïve approach would be to shoot rays into the scene from the camera and then to slowly march outwards from the camera along each ray checking for the fractal as we go. This is obviously sub optimal as it is either slow, with small steps along the rays, or it is fast, but with such big steps that much of the fractal is lost. In order to solve this particular dilemma we needed a new way to find the fractal in space. We found an equation that allowed us to estimate the distance to the surface of the fractal given a certain point.    div.picContain
+    
+    div.picContain
+      img.pictureCenter(src='./images/equat_5.png')
+
+    p This equation gives us the minimum distance in any direction that the fractal surface could be, and since we only care about the direction along the ray we are currently on we can use that distance as the size of our next step. Our final step to optimize the ray marching was to modulate the stopping epsilon as the ray gets further from the camera.
+
+    div.picContain
+      img.pictureCenter(src='./images/DistanceEstimator.png')
+
+    p At this point we have a bunch of data regarding the position of the fractal relative to the camera, and we can draw the fractal based on the distance from the camera, but we would like to do more. For example shadows, material application, and other cool effects we need the all-powerful normals that most surfaces have. 
+
+    div.picContain
+      img.pictureCenter(src='./images/heightMap.jpg')
+
+  h1.resultsTitle Generating normals
+  div.resultsPanel
+    p Once we had built up the depth map using ray marching. We had to apply an algorithm to generate normals. To do this we took the gradient across each pixel using its two neighbors to calculate the derivatives. Because of the high level of detail on the fractal surface, our normals would sometimes look very noisy. To deal with this we super sampled the normals.
+
+    div.picContain
+      img.pictureCenter(src='./images/normals.jpg')
+
+  h1.resultsTitle Lights, Shadows, and Reflections
+  div.resultsPanel
+    p Lights and Shadows are implemented much like they were in our original ray tracers. Because we use the normal map to generate the normals on the fractal surface, we don’t support lights or reflections of the fractal in reflections due to the fact we would have to recalculate the height map from every angle that we wanted the fractal to be reflected along.
+
+    div.picContain
+      img.pictureCenter(src='./images/lights.jpg')
+      img.pictureCenter(src='./images/shadows.jpg')
+
+  h1.resultsTitle Ambient Occlusion
+  div.resultsPanel
+    p Ambient Occlusion falls out of the ray marching process for free. Because we have a distance estimator formula, we can simply count the number of marches it takes to get to our final destination. If one pixel has more marches than another, it must have had to pass through a more complex portion of the scene.
+
+    div.picContain
+      img.pictureCenter(src='./images/ambientOcclusion.jpg')
+      img.pictureCenter(src='./images/DistanceEstimator.png')
+
+  h1.resultsTitle Overall result
+  div.resultsPanel
+    p Here are some of the results of the process.
+
+    div.picContain
+      img.pictureCenter(src='./images/colors.jpg')
+
+    div.picContain
+      img.pictureCenter(src='./images/example2.jpg')
+
+  
