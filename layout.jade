@@ -4,6 +4,7 @@ html
     meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     block title
     link(rel='stylesheet', href='./stylesheets/style.css')
+    link(rel='stylesheet', href='./stylesheets/buttons.css')
     meta(name="viewport" content="initial-scale=1")
 
     script(src='./javascripts/jquery_2.1.0.js')
@@ -14,8 +15,19 @@ html
     div.navbar
         a#brand(href='./index.html')
             img.brandImg(src='./images/FractalFlame2.jpg')
+            p Home
         a.navLinks(href='./quatern.html') Quaternion Fractals
         a.navLinks(href='./flames.html') 3D Fractal Flames
+        a.navLinks(href='./use.html') Use the Project
+
+        form(method='get', action='./resources/Team_Aaron_Gabe_Chad_A_Plus_Best_Group.7z')
+          button.flat-button.flat-button-2(type="submit") project zip
+
+        form(method='get', action='./resources/3D4DFractals.docx')
+          button.flat-button.flat-button-2(type="submit") paper
+
+        form(method='get', action='./resources/graphics_final.pptx')
+          button.flat-button.flat-button-2(type="submit") slides
 
 
     .container

@@ -57,10 +57,25 @@ body
     padding (navbar-height * 0.1)
     top 0px
     display inline
-    width 100px
+    transitions(0.2s)
+    height 48px
+    background-color lighten(black, 5%)
+    margin-right 12px
+
+#brand:hover
+  background-color lighten(black, 15%)
 
 .brandImg
     height (navbar-height * 0.8)
+    display inline-block
+
+#brand > p
+  display inline-block
+  color main-color
+  line-height (navbar-height/2)
+  margin 0 20px
+  top -18px
+  position relative
 
 #signup
   color main-color
@@ -68,6 +83,15 @@ body
 a
   color #fff
   text-decoration none
+
+form
+  display inline-block
+
+code
+  color #ddd
+  background-color #777
+  padding 15px
+  margin-top 40px
 
 .navLinks
   margin (navbar-height * 0.2)

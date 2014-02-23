@@ -1,0 +1,56 @@
+extend layout
+block title
+  title Use the Project - 3D/4D Fractals
+
+block content
+  div.mainTitle 
+    img.titleImg(src='./images/allTogether_trans.png')
+    h2 Using our Project
+    img.titleImg(src='./images/animation1.gif')
+  h1.resultsTitle Quaternion - Just Fractal
+  div.resultsPanel
+    p We have two version of our Quaternion project that you can use. One is in the folder “just_fractal”, which only generates the fractal and applies all the shading techniques.
+    
+    p You can compile it with make. It requires a modern g++.
+
+    p You can run the program like so
+
+    code ./ray
+
+    p This would generate a fractal with default options
+
+    code ./ray 100 512 4
+
+    p This would generate a 100 frame animation spinning around the fractal, the resolution will be 512x512, and the normals will be 16x super sampled
+
+  h1.resultsTitle Quaternion - Fractal Box
+  div.resultsPanel
+    p The other Quaternion version is in the folder “fractal_box”, which generates the fractal in the Cornell box.
+
+    p You can run the program like so
+
+    code ./ray
+
+    p This would generate a fractal with default options
+
+    code ./ray 512 4
+
+    p This will generate a fractal with a resolution of 512x512 and 16x super samples
+
+  h1.resultsTitle 3D Fractal Flame
+  div.resultsPanel
+    p The 3D fractal flame generator is located in the “3D_fractal_flame” folder.
+
+    p You can compile it with Visual Studio 2013 and ICC++. It will probably work with MSVC++, you might have to change some things though… If nothing works just run the supplied binary in
+
+    code FractalFlame3D_CPU\x64\Release
+
+    p You can run the program like so
+
+    code ./FractalFlame3D_CPU
+
+    p This would generate a fractal with default options
+
+    code ./FractalFlame3D_CPU 100 512 4
+
+    p This will generate a fractal animation of 100 frames with a resolution of 512x512 and 16x super samples

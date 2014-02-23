@@ -1,0 +1,66 @@
+.flat-button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 14px 26px;
+  font-size: 20px;
+  line-height: 100%;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.1s ease-in-out;
+  -webkit-transition: background 0.1s ease-in-out;
+  -moz-transition: background 0.1s ease-in-out;
+  -ms-transition: background 0.1s ease-in-out;
+  -o-transition: background 0.1s ease-in-out;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.flat-button:active {
+  padding-top: 15px;
+}
+.flat-button,
+.flat-button:hover,
+.flat-button:active {
+  outline: 0 none;
+  text-decoration: none;
+  color: #fff;
+}
+.flat-button-1 {
+  height: 70px;
+  width: 15%;
+  margin: 10px;
+  min-width: 125px;
+  background-color: #cb3b47;
+  box-shadow: 0px 3px 0px 0px #4d1419;
+  padding: 5px;
+  display: block;
+}
+.flat-button-1:hover {
+  background-color: #b32f3b;
+}
+.flat-button-1:active {
+  box-shadow: 0px 1px 0px 0px #4d1419;
+}
+.flat-button-2 {
+  width: 7%;
+  margin: 10px;
+  min-width: 125px;
+  background-color: #cb3b47;
+  box-shadow: 0px 3px 0px 0px #4d1419;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 25px;
+  left: 0px;
+}
+.flat-button-2:hover {
+  background-color: #b32f3b;
+}
+.flat-button-2:active {
+  box-shadow: 0px 1px 0px 0px #4d1419;
+  padding-top: 5px;
+  line-height: 27px;
+}

@@ -49,10 +49,29 @@ body {
   padding: 6px;
   top: 0px;
   display: inline;
-  width: 100px;
+  transition: background 0.2s ease-in-out;
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -ms-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  height: 48px;
+  background-color: #0d0d0d;
+  margin-right: 12px;
+}
+#brand:hover {
+  background-color: #262626;
 }
 .brandImg {
   height: 48px;
+  display: inline-block;
+}
+#brand > p {
+  display: inline-block;
+  color: #c1333f;
+  line-height: 30px;
+  margin: 0 20px;
+  top: -18px;
+  position: relative;
 }
 #signup {
   color: #c1333f;
@@ -60,6 +79,15 @@ body {
 a {
   color: #fff;
   text-decoration: none;
+}
+form {
+  display: inline-block;
+}
+code {
+  color: #ddd;
+  background-color: #777;
+  padding: 15px;
+  margin-top: 40px;
 }
 .navLinks {
   margin: 12px;
