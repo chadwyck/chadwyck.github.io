@@ -1,27 +1,66 @@
+
+
+@import url('http://fonts.googleapis.com/css?family=Montserrat|Amatic+SC');
+
 html {
   background-color: #1c1c1c;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat';
 }
 .col {
   position: relative;
   display: block;
   float: left;
   margin: 1.25%;
+  font-size: 40px;
+  text-align: center;
+  line-height: 10px;
+  height: 200px;
   background-color: #444;
   color: #fff;
   padding: 100px;
   box-sizing: border-box;
+  border-bottom: 8px solid rgba(0,0,0,0.2);
 }
+
+.yellow {
+  background-color: #cab825;
+}
+
+.red {
+  background-color: #862a1d;
+}
+
 .orange {
-  background-color: #518D93;
+  background-color: #b97308;
 }
+
 .blue {
-  background-color: #212121;
+  background-color: #518d93;
 }
-.gray {
-  background-color: #812e22;
-}
+
 .green {
   background-color: #56782b;
+}
+
+.purple {
+  background-color: #5e3f71;
+}
+
+.turq {
+  background-color: #3b9165;
+}
+
+.col-1-1 {
+  width: 300px;
+}
+.col-2-1 {
+  width: 400px;
+}
+.col-3-1 {
+  width: 500px;
 }
 .col-1-2 {
   width: 47.5%;
@@ -41,7 +80,7 @@ svg {
   height: 100%;
 }
 circle {
-  fill: rgba(255,255,255,0.1);
+  fill: rgba(255,255,255,0.13);
 }
 
 .circ-expand {
@@ -55,4 +94,26 @@ circle {
         opacity: 1; }
   100% { transform: scale(500.0); 
         opacity: 0; }
+}
+
+div.parallax-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  background: #111;
+  text-align: center;
+}
+div.cont2 {
+  background: #141414;
+}
+div.parallax-container div.parallax {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.leftmore {
+  position: relative;
+  left: 0px;
 }
