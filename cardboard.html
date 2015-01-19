@@ -149,8 +149,11 @@
         window.addEventListener("devicemotion", handleMotionEvent, true);
     }
 
+    var ax, ay, vx, vy, motX, motY;
+
     function deviceMotionHandler(e) {
         /* Calculate the acceleration due to gravity */
+
         ax = e.accelerationIncludingGravity.x * 5;
         ay = e.accelerationIncludingGravity.y * 5;
 
@@ -160,29 +163,29 @@
         vx = vx * 0.98;
         vy = vy * 0.98;
 
-        x = parseInt(x + (vx / 20));
-        y = parseInt(y + (vy / 20));
+        motX = parseInt(motX + (vx / 20));
+        motY = parseInt(motY + (vy / 20));
 
         /* Check bounds */
-        if (x < 0) {
-            x = 0;
+        if (motX < 0) {
+            motX = 0;
             vx = -vx;
         }
-        if (y < 0) {
-            y = 0;
+        if (motY < 0) {
+            motY = 0;
             vy = -vy;
         }
-        if (x > document.documentElement.clientWidth - 80) {
-            x = document.documentElement.clientWidth - 80;
+        if (motX > document.documentElement.clientWidth - 80) {
+            motX = document.documentElement.clientWidth - 80;
             vx = -vx;
         }
-        if (y > document.documentElement.clientHeight - 80) {
-            y = document.documentElement.clientHeight - 80;
+        if (motY > document.documentElement.clientHeight - 80) {
+            motY = document.documentElement.clientHeight - 80;
             vy = -vy;
         }
 
-        camera.position.x = x;
-        camera.position.y = y;
+        camera.position.x = motX;
+        camera.position.y = motY;
     }
 
     function resize() {
