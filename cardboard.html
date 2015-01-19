@@ -122,9 +122,9 @@
         var loader = new THREE.OBJLoader( manager );
         loader.load( 'obj/Hulk.obj', function ( object ) {
 
-            object.position.x = camera.position.x-1;
-            object.position.y = camera.position.y-3;
-            object.position.z = camera.position.z-5;
+            object.position.x = camera.position.x-0;
+            object.position.y = camera.position.y+3;
+            object.position.z = camera.position.z-10;
             scene.add( object );
 
         }, onProgress, onError );
@@ -133,60 +133,60 @@
         setTimeout(resize, 1);
 
 
-        function handleMotionEvent(event) {
-
-            var x = event.accelerationIncludingGravity.x;
-            var y = event.accelerationIncludingGravity.y;
-            var z = event.accelerationIncludingGravity.z;
-
-//            camera.position.x = x;
-//            camera.position.y = y;
-//            camera.position.z = z;
-
-            deviceMotionHandler(event);
-        }
-
-        window.addEventListener("devicemotion", handleMotionEvent, true);
+//        function handleMotionEvent(event) {
+//
+//            var x = event.accelerationIncludingGravity.x;
+//            var y = event.accelerationIncludingGravity.y;
+//            var z = event.accelerationIncludingGravity.z;
+//
+////            camera.position.x = x;
+////            camera.position.y = y;
+////            camera.position.z = z;
+//
+//            deviceMotionHandler(event);
+//        }
+//
+//        window.addEventListener("devicemotion", handleMotionEvent, true);
     }
 
-    var ax, ay, vx, vy, motX, motY;
-
-    function deviceMotionHandler(e) {
-        /* Calculate the acceleration due to gravity */
-
-        ax = e.accelerationIncludingGravity.x * 5;
-        ay = e.accelerationIncludingGravity.y * 5;
-
-        vx = vx + ax;
-        vy = vy - ay;
-
-        vx = vx * 0.98;
-        vy = vy * 0.98;
-
-        motX = parseInt(motX + (vx / 20));
-        motY = parseInt(motY + (vy / 20));
-
-        /* Check bounds */
-        if (motX < 0) {
-            motX = 0;
-            vx = -vx;
-        }
-        if (motY < 0) {
-            motY = 0;
-            vy = -vy;
-        }
-        if (motX > document.documentElement.clientWidth - 80) {
-            motX = document.documentElement.clientWidth - 80;
-            vx = -vx;
-        }
-        if (motY > document.documentElement.clientHeight - 80) {
-            motY = document.documentElement.clientHeight - 80;
-            vy = -vy;
-        }
-
-        camera.position.x = motX;
-        camera.position.y = motY;
-    }
+//    var ax, ay, vx, vy, motX, motY;
+//
+//    function deviceMotionHandler(e) {
+//        /* Calculate the acceleration due to gravity */
+//
+//        ax = e.accelerationIncludingGravity.x * 5;
+//        ay = e.accelerationIncludingGravity.y * 5;
+//
+//        vx = vx + ax;
+//        vy = vy - ay;
+//
+//        vx = vx * 0.98;
+//        vy = vy * 0.98;
+//
+//        motX = parseInt(motX + (vx / 20));
+//        motY = parseInt(motY + (vy / 20));
+//
+//        /* Check bounds */
+//        if (motX < 0) {
+//            motX = 0;
+//            vx = -vx;
+//        }
+//        if (motY < 0) {
+//            motY = 0;
+//            vy = -vy;
+//        }
+//        if (motX > document.documentElement.clientWidth - 80) {
+//            motX = document.documentElement.clientWidth - 80;
+//            vx = -vx;
+//        }
+//        if (motY > document.documentElement.clientHeight - 80) {
+//            motY = document.documentElement.clientHeight - 80;
+//            vy = -vy;
+//        }
+//
+//        camera.position.x = motX;
+//        camera.position.y = motY;
+//    }
 
     function resize() {
         var width = container.offsetWidth;
