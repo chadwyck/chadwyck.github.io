@@ -26,10 +26,10 @@
 <script src="js/third-party/threejs/DeviceOrientationControls.js"></script>
 <script src="js/third-party/threejs/OrbitControls.js"></script>
 <script src="js/third-party/threejs/loaders/OBJLoader.js"></script>
+<script src="js/third-party/threejs/audio/Audio.js"></script>
+<script src="js/third-party/threejs/audio/AudioListener.js"></script>
 
 <script>
-    var lock = window.navigator.requestWakeLock('screen');
-    
     var camera, scene, renderer;
     var effect, controls;
     var element, container;
@@ -52,6 +52,9 @@
         camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
         camera.position.set(0, 10, 0);
         scene.add(camera);
+
+        var listener = new THREE.AudioListener();
+        camera.add( listener );
 
         controls = new THREE.OrbitControls(camera, element);
         controls.rotateUp(Math.PI / 4);
@@ -103,6 +106,11 @@
         var mesh = new THREE.Mesh(geometry, material);
         mesh.rotation.x = -Math.PI / 2;
         scene.add(mesh);
+
+        var sound1 = new THREE.Audio( listener );
+        sound1.load( 'sounds/CultureShock_FX.mp3' );
+        sound1.setRefDistance( 20 );
+        mesh.add( sound1 );
 
         var manager = new THREE.LoadingManager();
         manager.onProgress = function ( item, loaded, total ) {
