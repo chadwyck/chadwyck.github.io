@@ -139,9 +139,9 @@
             var y = event.accelerationIncludingGravity.y;
             var z = event.accelerationIncludingGravity.z;
 
-            camera.position.x += x;
-            camera.position.y += y;
-            camera.position.z += z;
+            camera.position.x = x/10.0;
+            camera.position.y = y/10.0;
+            camera.position.z = z/10.0;
         }
 
         window.addEventListener("devicemotion", handleMotionEvent, true);
