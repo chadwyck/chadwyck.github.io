@@ -3,22 +3,22 @@
 <script>
 function handleMotionEvent(event) {
 
-//    var x = event.accelerationIncludingGravity.x;
-//    var y = event.accelerationIncludingGravity.y;
-//    var z = event.accelerationIncludingGravity.z;
+    var x = event.accelerationIncludingGravity.x;
+    var y = event.accelerationIncludingGravity.y;
+    var z = event.accelerationIncludingGravity.z;
 
-    deviceMotionHandler(event);
+    deviceMotionHandler(x, y, z);
 
 //    document.getElementById('accel').innerHTML = 'X: '+x+' | Y: '+y+' | Z: '+z;
 }
 
-var ax, ay, vx, vy, motX, motY, camX, camY;
+var ax = 0.0, ay = 0.0, vx = 0.0, vy = 0.0, motX = 0.0, motY = 0.0, camX = 0.0, camY = 0.0;
 
-function deviceMotionHandler(e) {
+function deviceMotionHandler(x, y, z) {
     /* Calculate the acceleration due to gravity */
 
-    ax = e.accelerationIncludingGravity.x * 5;
-    ay = e.accelerationIncludingGravity.y * 5;
+    ax = x * 5;
+    ay = y * 5;
 
     vx = vx + ax;
     vy = vy - ay;
