@@ -3,11 +3,56 @@
 <script>
 function handleMotionEvent(event) {
 
-    var x = event.accelerationIncludingGravity.x;
-    var y = event.accelerationIncludingGravity.y;
-    var z = event.accelerationIncludingGravity.z;
+//    var x = event.accelerationIncludingGravity.x;
+//    var y = event.accelerationIncludingGravity.y;
+//    var z = event.accelerationIncludingGravity.z;
 
-    document.getElementById('accel').innerHTML = 'X: '+x+' | Y: '+y+' | Z: '+z;
+    deviceMotionHandler(event);
+
+//    document.getElementById('accel').innerHTML = 'X: '+x+' | Y: '+y+' | Z: '+z;
+}
+
+var ax, ay, vx, vy, motX, motY, camX, camY;
+
+function deviceMotionHandler(e) {
+    /* Calculate the acceleration due to gravity */
+
+    ax = e.accelerationIncludingGravity.x * 5;
+    ay = e.accelerationIncludingGravity.y * 5;
+
+    vx = vx + ax;
+    vy = vy - ay;
+
+    vx = vx * 0.98;
+    vy = vy * 0.98;
+
+    motX = motX + (vx / 20);
+    motY = motY + (vy / 20);
+
+    /* Check bounds */
+    if (motX < 0) {
+        motX = 0;
+        vx = -vx;
+    }
+    if (motY < 0) {
+        motY = 0;
+        vy = -vy;
+    }
+    if (motX > document.documentElement.clientWidth - 80) {
+        motX = document.documentElement.clientWidth - 80;
+        vx = -vx;
+    }
+    if (motY > document.documentElement.clientHeight - 80) {
+        motY = document.documentElement.clientHeight - 80;
+        vy = -vy;
+    }
+
+//    camera.position.x = motX;
+//    camera.position.y = motY;
+    camX = motX;
+    camY = motY;
+
+    document.getElementById('accel').innerHTML = 'X: '+camX+' | Y: '+camY;
 }
 
 window.addEventListener("devicemotion", handleMotionEvent, true);
