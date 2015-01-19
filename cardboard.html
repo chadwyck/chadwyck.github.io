@@ -28,6 +28,8 @@
 <script src="js/third-party/threejs/loaders/OBJLoader.js"></script>
 
 <script>
+    var lock = window.navigator.requestWakeLock('screen');
+    
     var camera, scene, renderer;
     var effect, controls;
     var element, container;
