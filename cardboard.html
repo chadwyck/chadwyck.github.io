@@ -139,12 +139,50 @@
             var y = event.accelerationIncludingGravity.y;
             var z = event.accelerationIncludingGravity.z;
 
-            camera.position.x = x;
-            camera.position.y = y;
-            camera.position.z = z;
+//            camera.position.x = x;
+//            camera.position.y = y;
+//            camera.position.z = z;
+
+            deviceMotionHandler(event);
         }
 
         window.addEventListener("devicemotion", handleMotionEvent, true);
+    }
+
+    function deviceMotionHandler(e) {
+        /* Calculate the acceleration due to gravity */
+        ax = e.accelerationIncludingGravity.x * 5;
+        ay = e.accelerationIncludingGravity.y * 5;
+
+        vx = vx + ax;
+        vy = vy - ay;
+
+        vx = vx * 0.98;
+        vy = vy * 0.98;
+
+        x = parseInt(x + (vx / 20));
+        y = parseInt(y + (vy / 20));
+
+        /* Check bounds */
+        if (x < 0) {
+            x = 0;
+            vx = -vx;
+        }
+        if (y < 0) {
+            y = 0;
+            vy = -vy;
+        }
+        if (x > document.documentElement.clientWidth - 80) {
+            x = document.documentElement.clientWidth - 80;
+            vx = -vx;
+        }
+        if (y > document.documentElement.clientHeight - 80) {
+            y = document.documentElement.clientHeight - 80;
+            vy = -vy;
+        }
+
+        camera.position.x = x;
+        camera.position.y = y;
     }
 
     function resize() {
