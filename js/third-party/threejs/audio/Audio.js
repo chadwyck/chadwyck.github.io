@@ -17,10 +17,10 @@ THREE.Audio = function ( listener ) {
 
 THREE.Audio.prototype = Object.create( THREE.Object3D.prototype );
 
-THREE.Audio.prototype.load = function ( file ) {
+THREE.Audio.prototype.load = function ( file, loaded ) {
 
 	var scope = this;
-
+  console.log(loaded);
 	var request = new XMLHttpRequest();
 	request.open( 'GET', file, true );
 	request.responseType = 'arraybuffer';
@@ -30,7 +30,7 @@ THREE.Audio.prototype.load = function ( file ) {
 
 			scope.source.buffer = buffer;
 			scope.source.connect( scope.panner );
-			scope.source.start();
+			loaded( scope );
 
 		} );
 
