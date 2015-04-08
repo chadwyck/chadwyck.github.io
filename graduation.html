@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+</head>
+<body>
+<style>
+
+  @keyframes seal-anim {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @-webkit-keyframes seal-anim {
+    0%   { width: 36vw; margin-left: -18vw; left: 50vw; top: 15vh; }
+    30%  { width: 40vw; margin-left: -20vw; left: 50vw; top: 15vh; }
+    100% { width: 30vh; margin-left: 0; left: 5vh; top: 5vh; }
+  }
+
+  @-webkit-keyframes seal-anim-min {
+    0%   { width: 60vw; margin-left: -30vw; left: 50vw; top: 15vh; }
+    30%  { width: 64vw; margin-left: -32vw; left: 50vw; top: 15vh; }
+    100% { width: 30vh; margin-left: 0; left: 3vh; top: 70vh; }
+  }
+
+  @-webkit-keyframes seal-anim-half {
+    0%   { width: 36vw; margin-left: -18vw; left: 50vw; top: 15vh; }
+    30%  { width: 40vw; margin-left: -20vw; left: 50vw; top: 15vh; }
+    100% { width: 30vh; margin-left: 0; left: 3vh; top: 5vh; }
+  }
+
+  @-webkit-keyframes fade-in {
+    0%   { opacity: 0; margin-top: -40px; }
+    30%  { opacity: 0; margin-top: -40px; }
+    100% { opacity: 1; margin-top: 0; }
+  }
+
+  @-webkit-keyframes me {
+    0%   { opacity: 0; bottom: -15vh; }
+    30%  { opacity: 0; bottom: -15vh; }
+    100% { opacity: 1; bottom: -10vh; }
+  }
+
+  @-webkit-keyframes banner {
+    0%   { opacity: 0; bottom: 19vh; }
+    30%  { opacity: 0; bottom: 19vh; }
+    100% { opacity: 1; bottom: 24vh; }
+  }
+
+  @-webkit-keyframes banner-half {
+    0%   { opacity: 0; bottom: 40vh; }
+    30%  { opacity: 0; bottom: 40vh; }
+    100% { opacity: 1; bottom: 45vh; }
+  }
+
+  @-webkit-keyframes seal-anim-max {
+    0%   { width: 36vw; margin-left: -18vw; left: 50vw; top: 15vh; }
+    30%  { width: 40vw; margin-left: -20vw; left: 50vw; top: 15vh; }
+    100% { width: 38vh; margin-left: 0; left: 8vh; top: 5vh; }
+  }
+
+  body {
+    margin: 0;
+  }
+  .contain {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+  .back {
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+  .seal {
+    width: 40vw;
+    margin-left: -20vw;
+    left: 50vw;
+    position: fixed;
+    top: 15vh;
+    z-index: 20;
+    animation: seal-anim 3s;
+    -webkit-animation: seal-anim 3s forwards;
+  }
+  .me {
+    width: 50vh;
+    left: -10px;
+    position: fixed;
+    bottom: -10vh;
+    -webkit-animation: me 5s forwards;
+  }
+  .info {
+    height: 80vh;
+    top: 10vh;
+    position: fixed;
+    right: 12vh;
+    -webkit-animation: fade-in 5s forwards;
+  }
+  .banner {
+    height: 17.6vh;
+    bottom: 24vh;
+    position: fixed;
+    right: -9.8vh;
+    -webkit-animation: banner 5s forwards;
+  }
+
+  @media (min-width: 1500px) {
+    .info {
+      right: 28vh;
+    }
+    .banner {
+      right: 6vh;
+    }
+    .me {
+      left: 80px;
+    }
+    .seal {
+      animation: seal-anim-max 3s;
+      -webkit-animation: seal-anim-max 3s forwards;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .info {
+      height: 55vh;
+      right: 8vh;
+    }
+    .banner {
+      height: 12.6vh;
+      right: -8.8vh;
+      bottom: 45vh;
+      -webkit-animation: banner-half 5s forwards;
+    }
+    .me {
+      left: -80px;
+      width: 40vh;
+    }
+    .seal {
+      animation: seal-anim-half 3s;
+      -webkit-animation: seal-anim-half 3s forwards;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .info {
+      height: 84vw;
+      margin-left: -40vw !important;
+      left: 50vw;
+      top: 15vw !important;
+    }
+    .banner {
+      height: 18vw;
+      margin-left: -61.2vw !important;
+      left: 50vw;
+      top: 66vw !important;
+    }
+    .me {
+      width: 30vh;
+      left: 45vw; !important;
+      bottom: -15vh;
+    }
+    .seal {
+      /*top: 100px !important;*/
+      animation: seal-anim-min 5s;
+      -webkit-animation: seal-anim-min 5s forwards;
+    }
+  }
+
+</style>
+<div class="contain">
+  <img class='back' src="grad/back.png">
+  <img class='seal' src="grad/seal.svg">
+  <img class='me' src="grad/me.svg">
+  <img class='info' src="grad/info.svg">
+  <img class='banner' src="grad/banner.svg">
+</div>
+</body>
+</html>
