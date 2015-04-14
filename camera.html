@@ -136,34 +136,57 @@
 
     // EFFECTS!!!
 
-    var back = document.createElement('canvas');
-    var backcontext = back.getContext('2d');
+    var isMobile = {
+      Android: function() {
+        return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+    };
 
-    var back2 = document.createElement('canvas');
-    var backcontext2 = back2.getContext('2d');
+    if(!isMobile.any()) {
 
-    var cw,ch;
+      var back = document.createElement('canvas');
+      var backcontext = back.getContext('2d');
 
-    video.addEventListener('play', function(){
-      cw = video.clientWidth;
-      ch = video.clientHeight;
-      canvas.width = cw;
-      canvas.height = ch;
-      back.width = cw;
-      back.height = ch;
-      draw(video,context,backcontext,cw,ch);
-    },false);
+      var back2 = document.createElement('canvas');
+      var backcontext2 = back2.getContext('2d');
 
-    video2.addEventListener('play', function(){
-      cw = video2.clientWidth;
-      ch = video2.clientHeight;
-      canvas2.width = cw;
-      canvas2.height = ch;
-      back2.width = cw;
-      back2.height = ch;
-      draw(video2,context2,backcontext2,cw,ch);
-    },false);
+      var cw, ch;
 
+      video.addEventListener('play', function () {
+        cw = video.clientWidth;
+        ch = video.clientHeight;
+        canvas.width = cw;
+        canvas.height = ch;
+        back.width = cw;
+        back.height = ch;
+        draw(video, context, backcontext, cw, ch);
+      }, false);
+
+      video2.addEventListener('play', function () {
+        cw = video2.clientWidth;
+        ch = video2.clientHeight;
+        canvas2.width = cw;
+        canvas2.height = ch;
+        back2.width = cw;
+        back2.height = ch;
+        draw(video2, context2, backcontext2, cw, ch);
+      }, false);
+    }
 
   }, false);
 
