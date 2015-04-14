@@ -31,6 +31,16 @@
     right: -9999px;
     margin: auto;
   }
+  .cont canvas {
+    min-width: 50vw;
+    min-height: 100vw;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+  }
   .cont {
     min-width: 50vw;
     min-height: 100vw;
@@ -71,8 +81,6 @@
     console.log(MediaStreamTrack.getSources(function(media_sources) {
 
       var videoSources = [];
-
-      alert('media_sources : '+media_sources);
 
       media_sources.forEach(function(media_source){
         if (media_source.kind === 'video') {
@@ -126,6 +134,37 @@
 
     document.getElementById("contain").addEventListener('click', fullscreen, false);
 
+    // EFFECTS!!!
+
+    var back = document.createElement('canvas');
+    var backcontext = back.getContext('2d');
+
+    var back2 = document.createElement('canvas');
+    var backcontext2 = back2.getContext('2d');
+
+    var cw,ch;
+
+    video.addEventListener('play', function(){
+      cw = video.clientWidth;
+      ch = video.clientHeight;
+      canvas.width = cw;
+      canvas.height = ch;
+      back.width = cw;
+      back.height = ch;
+      draw(video,context,backcontext,cw,ch);
+    },false);
+
+    video2.addEventListener('play', function(){
+      cw = video2.clientWidth;
+      ch = video2.clientHeight;
+      canvas2.width = cw;
+      canvas2.height = ch;
+      back2.width = cw;
+      back2.height = ch;
+      draw(video2,context2,backcontext2,cw,ch);
+    },false);
+
+
   }, false);
 
   function fullscreen() {
@@ -139,6 +178,31 @@
     } else if (container.webkitRequestFullscreen) {
       container.webkitRequestFullscreen();
     }
+  }
+
+
+  function draw(v,c,bc,w,h) {
+    if(v.paused || v.ended) return false;
+    // First, draw it into the backing canvas
+    bc.drawImage(v,0,0,w,h);
+    // Grab the pixel data from the backing canvas
+    var idata = bc.getImageData(0,0,w,h);
+    var data = idata.data;
+    // Loop through the pixels, turning them grayscale
+    for(var i = 0; i < data.length; i+=4) {
+      var r = data[i];
+      var g = data[i+1];
+      var b = data[i+2];
+      var brightness = (3*r+4*g+b)>>>3;
+      data[i] = brightness;
+      data[i+1] = brightness;
+      data[i+2] = brightness;
+    }
+    idata.data = data;
+    // Draw the pixels onto the visible canvas
+    c.putImageData(idata,0,0);
+    // Start over!
+    setTimeout(function(){ draw(v,c,bc,w,h); }, 0);
   }
 
 </script>
