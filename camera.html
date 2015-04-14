@@ -213,6 +213,8 @@
   var n = 0;
   var si = true;
 
+  var prevData;
+
   function draw(v,c,bc,w,h) {
     if(v.paused || v.ended) return false;
 
@@ -234,7 +236,15 @@
     var idata = bc.getImageData(0,0,w,h);
     var data = idata.data;
     // Loop through the pixels, turning them grayscale
+    var pr = 0;
+    var pg = 0;
+    var pb = 0;
     for(var i = 0; i < data.length; i+=4) {
+      if(prevData) {
+        pr = prevData[i] * 0.975;
+        pg = prevData[i+1] * 0.975;
+        pb = prevData[i+2] * 0.975;
+      }
 //      var r = data[i] + t;
 //      var g = data[i+1] + t;
 //      var b = data[i+2] + t;
@@ -242,15 +252,17 @@
 //      data[i] = brightness;
 //      data[i+1] = brightness;
 //      data[i+2] = brightness;
-      data[i] = data[i] + t;
-      data[i+1] = data[i+1] - t;
-      data[i+2] = data[i+2] - t;
+      data[i] = (data[i] + t + pr) * 0.5;
+      data[i+1] = (data[i+1] - t + pg) * 0.5;
+      data[i+2] = (data[i+2] - t + pb) * 0.5;
     }
     idata.data = data;
     // Draw the pixels onto the visible canvas
     c.putImageData(idata,0,0);
     // Start over!
     setTimeout(function(){ draw(v,c,bc,w,h); }, 0);
+
+    prevData = data;
   }
 
 </script>
