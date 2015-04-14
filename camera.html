@@ -239,7 +239,11 @@
     var pr = 0;
     var pg = 0;
     var pb = 0;
-    for(var i = 0; i < data.length; i+=4) {
+    var ff = 0;
+    var left = true;
+    for(var i = 0; i < data.length/2; i+=4) {
+
+
       if(prevData) {
         pr = prevData[i] * 0.975;
         pg = prevData[i+1] * 0.975;
@@ -252,9 +256,43 @@
 //      data[i] = brightness;
 //      data[i+1] = brightness;
 //      data[i+2] = brightness;
-      data[i] = (data[i] + t + pr) * 0.5;
-      data[i+1] = (data[i+1] - t + pg) * 0.5;
-      data[i+2] = (data[i+2] - t + pb) * 0.5;
+
+
+//      data[i] = (data[i] + t + pr) * 0.5;
+//      data[i+1] = (data[i+1] - t + pg) * 0.5;
+//      data[i+2] = (data[i+2] - t + pb) * 0.5;
+//
+//      data[(data.length) - i] = data[i];
+//      data[(data.length) - i+1] = data[i+1];
+//      data[(data.length) - i+2] = data[i+2];
+
+      if(left) {
+        ff = ff+4;
+
+        data[i] = (data[i] + t + pr) * 0.5;
+        data[i+1] = (data[i+1] - t + pg) * 0.5;
+        data[i+2] = (data[i+2] - t + pb) * 0.5;
+
+        if(ff >= (w * 2)) {
+          left = false;
+          ff = 0;
+        }
+      } else {
+        ff = ff+4;
+
+        data[i] = data[i - (ff * 2)];
+        data[i+1] = data[i+1 - (ff * 2)];
+        data[i+2] = data[i+2 - (ff * 2)];
+
+        if(ff >= (w * 2)) {
+          left = true;
+          ff = 0
+        }
+      }
+
+      data[(data.length) - i] = data[i];
+      data[(data.length) - i+1] = data[i+1];
+      data[(data.length) - i+2] = data[i+2];
     }
     idata.data = data;
     // Draw the pixels onto the visible canvas
@@ -264,6 +302,8 @@
 
     prevData = data;
   }
+
+
 
 </script>
 
