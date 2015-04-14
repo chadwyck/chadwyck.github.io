@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div class="cont" id="cont1">
+<video id="video" autoplay></video>
+<canvas id="canvas" width="0" height="0"></canvas>
+</div>
+<div class="cont" id="cont2">
+<video id="video2" autoplay></video>
+<canvas id="canvas2" width="0" height="0"></canvas>
+</div>
+
+<style type="text/css">
+  body {
+    margin: 0;
+    background-color: #000;
+  }
+  video {
+    min-width: 50vw;
+    min-height: 100vw;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+  }
+  .cont {
+    min-width: 50vw;
+    min-height: 100vw;
+    position: fixed;
+    text-align: center;
+    overflow: hidden;
+  }
+  #cont1 {
+    top: 0;
+    left: 0;
+  }
+  #cont2 {
+    top: 0;
+    left: 50vw;
+  }
+</style>
+
+<script type="text/javascript">
+  // Put event listeners into place
+  window.addEventListener("DOMContentLoaded", function() {
+    // Grab elements, create settings, etc.
+    var canvas = document.getElementById("canvas"),
+      canvas2 = document.getElementById("canvas2"),
+      context = canvas.getContext("2d"),
+      context2 = canvas2.getContext("2d"),
+      video = document.getElementById("video"),
+      videoObj = { "video": true },
+      video2 = document.getElementById("video2"),
+      videoObj2 = { "video": true },
+      errBack = function(error) {
+        console.log("Video capture error: ", error.code);
+      };
+
+    // Put video listeners into place
+    if(navigator.getUserMedia) { // Standard
+      navigator.getUserMedia(videoObj, function(stream) {
+        video.src = stream;
+        video.play();
+      }, errBack);
+      navigator.getUserMedia(videoObj2, function(stream) {
+        video2.src = stream;
+        video2.play();
+      }, errBack);
+    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+      navigator.webkitGetUserMedia(videoObj, function(stream){
+        video.src = window.webkitURL.createObjectURL(stream);
+        video.play();
+      }, errBack);
+      navigator.webkitGetUserMedia(videoObj2, function(stream){
+        video2.src = window.webkitURL.createObjectURL(stream);
+        video2.play();
+      }, errBack);
+    }
+    else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+      navigator.mozGetUserMedia(videoObj, function(stream){
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+      }, errBack);
+      navigator.mozGetUserMedia(videoObj2, function(stream){
+        video2.src = window.URL.createObjectURL(stream);
+        video2.play();
+      }, errBack);
+    }
+  }, false);
+</script>
+
+</body>
+</html>
