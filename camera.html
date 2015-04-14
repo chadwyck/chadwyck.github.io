@@ -21,6 +21,7 @@
   html, body {
     margin: 0;
     background-color: #000;
+    height: 100vh;
   }
   video {
     min-width: 50vw;
@@ -54,11 +55,11 @@
     height: 100vh;
   }
   #cont1 {
-    top: 0;
+    top: -30vh;
     left: 0;
   }
   #cont2 {
-    top: 0;
+    top: -30vh;
     left: 50vw;
   }
 </style>
@@ -78,6 +79,9 @@
       errBack = function(error) {
         console.log("Video capture error: ", error.code);
       };
+
+    canvas.height = document.documentElement.clientHeight * 2;
+    canvas2.height = document.documentElement.clientHeight * 2;
 
     console.log(MediaStreamTrack.getSources(function(media_sources) {
 
