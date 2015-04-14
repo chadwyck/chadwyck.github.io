@@ -5,13 +5,15 @@
   <title></title>
 </head>
 <body>
-<div class="cont" id="cont1">
-<video id="video" autoplay></video>
-<canvas id="canvas" width="0" height="0"></canvas>
-</div>
-<div class="cont" id="cont2">
-<video id="video2" autoplay></video>
-<canvas id="canvas2" width="0" height="0"></canvas>
+<div id="contain">
+  <div class="cont" id="cont1">
+  <video id="video" autoplay></video>
+  <canvas id="canvas" width="0" height="0"></canvas>
+  </div>
+  <div class="cont" id="cont2">
+  <video id="video2" autoplay></video>
+  <canvas id="canvas2" width="0" height="0"></canvas>
+  </div>
 </div>
 
 <style type="text/css">
@@ -35,6 +37,10 @@
     position: fixed;
     text-align: center;
     overflow: hidden;
+  }
+  #contain {
+    width: 100vw;
+    height: 100vh;
   }
   #cont1 {
     top: 0;
@@ -92,7 +98,23 @@
         video2.play();
       }, errBack);
     }
+
+    document.getElementById("contain").addEventListener('click', fullscreen, false);
+
   }, false);
+
+  function fullscreen() {
+    if (container.requestFullscreen) {
+      container.requestFullscreen();
+    } else if (container.msRequestFullscreen) {
+      container.msRequestFullscreen();
+    } else if (container.mozRequestFullScreen) {
+      container.mozRequestFullScreen();
+    } else if (container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    }
+  }
+
 </script>
 
 </body>
