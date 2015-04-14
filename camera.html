@@ -68,42 +68,68 @@
         console.log("Video capture error: ", error.code);
       };
 
-    // Put video listeners into place
-    if(navigator.getUserMedia) { // Standard
-      navigator.getUserMedia(videoObj, function(stream) {
-        video.src = stream;
-        video.play();
-      }, errBack);
-      navigator.getUserMedia(videoObj2, function(stream) {
-        video2.src = stream;
-        video2.play();
-      }, errBack);
-    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-      navigator.webkitGetUserMedia(videoObj, function(stream){
-        video.src = window.webkitURL.createObjectURL(stream);
-        video.play();
-      }, errBack);
-      navigator.webkitGetUserMedia(videoObj2, function(stream){
-        video2.src = window.webkitURL.createObjectURL(stream);
-        video2.play();
-      }, errBack);
-    }
-    else if(navigator.mozGetUserMedia) { // Firefox-prefixed
-      navigator.mozGetUserMedia(videoObj, function(stream){
-        video.src = window.URL.createObjectURL(stream);
-        video.play();
-      }, errBack);
-      navigator.mozGetUserMedia(videoObj2, function(stream){
-        video2.src = window.URL.createObjectURL(stream);
-        video2.play();
-      }, errBack);
-    }
+    console.log(MediaStreamTrack.getSources(function(media_sources) {
+
+      var videoSources = [];
+
+      alert('media_sources : '+media_sources);
+
+      media_sources.forEach(function(media_source){
+        if (media_source.kind === 'video') {
+          videoSources.push(media_source);
+        }
+      });
+
+      var constraints = {};
+
+      if(videoSources.length > 1) {
+        constraints.video = {
+          optional: [{sourceId: videoSources[1].id}]
+        };
+      } else {
+        constraints.video = {
+          optional: [{sourceId: videoSources[0].id}]
+        };
+      }
+
+      // Put video listeners into place
+      if (navigator.getUserMedia) { // Standard
+        navigator.getUserMedia(constraints, videoObj, function (stream) {
+          video.src = stream;
+          video.play();
+        }, errBack);
+        navigator.getUserMedia(constraints, videoObj2, function (stream) {
+          video2.src = stream;
+          video2.play();
+        }, errBack);
+      } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
+        navigator.webkitGetUserMedia(constraints, function (stream) {
+          video.src = window.webkitURL.createObjectURL(stream);
+          video.play();
+        }, errBack);
+        navigator.webkitGetUserMedia(constraints, function (stream) {
+          video2.src = window.webkitURL.createObjectURL(stream);
+          video2.play();
+        }, errBack);
+      }
+      else if (navigator.mozGetUserMedia) { // Firefox-prefixed
+        navigator.mozGetUserMedia(constraints, videoObj, function (stream) {
+          video.src = window.URL.createObjectURL(stream);
+          video.play();
+        }, errBack);
+        navigator.mozGetUserMedia(constraints, videoObj2, function (stream) {
+          video2.src = window.URL.createObjectURL(stream);
+          video2.play();
+        }, errBack);
+      }
+    }));
 
     document.getElementById("contain").addEventListener('click', fullscreen, false);
 
   }, false);
 
   function fullscreen() {
+    container = document.getElementById("contain");
     if (container.requestFullscreen) {
       container.requestFullscreen();
     } else if (container.msRequestFullscreen) {
