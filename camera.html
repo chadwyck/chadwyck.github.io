@@ -12,7 +12,6 @@
   <canvas id="canvas" width="0" height="0"></canvas>
   </div>
   <div class="cont" id="cont2">
-  <!--<video id="video2" autoplay></video>-->
   <canvas id="canvas2" width="0" height="0"></canvas>
   </div>
 </div>
@@ -74,8 +73,6 @@
       context2 = canvas2.getContext("2d"),
       video = document.getElementById("video"),
       videoObj = { "video": true },
-//      video2 = document.getElementById("video2"),
-//      videoObj2 = { "video": true },
       errBack = function(error) {
         console.log("Video capture error: ", error.code);
       };
@@ -111,29 +108,17 @@
           video.src = stream;
           video.play();
         }, errBack);
-//        navigator.getUserMedia(constraints, videoObj2, function (stream) {
-//          video2.src = stream;
-//          video2.play();
-//        }, errBack);
       } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
         navigator.webkitGetUserMedia(constraints, function (stream) {
           video.src = window.webkitURL.createObjectURL(stream);
           video.play();
         }, errBack);
-//        navigator.webkitGetUserMedia(constraints, function (stream) {
-//          video2.src = window.webkitURL.createObjectURL(stream);
-//          video2.play();
-//        }, errBack);
       }
       else if (navigator.mozGetUserMedia) { // Firefox-prefixed
         navigator.mozGetUserMedia(constraints, videoObj, function (stream) {
           video.src = window.URL.createObjectURL(stream);
           video.play();
         }, errBack);
-//        navigator.mozGetUserMedia(constraints, videoObj2, function (stream) {
-//          video2.src = window.URL.createObjectURL(stream);
-//          video2.play();
-//        }, errBack);
       }
     }));
 
@@ -141,28 +126,6 @@
 
     // EFFECTS!!!
 
-    var isMobile = {
-      Android: function() {
-        return navigator.userAgent.match(/Android/i);
-      },
-      BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-      },
-      iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-      },
-      Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-      },
-      Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-      },
-      any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-      }
-    };
-
-//    if(!isMobile.any()) {
 
       var back = document.createElement('canvas');
       var backcontext = back.getContext('2d');
@@ -186,17 +149,6 @@
         back2.height = ch;
         draw(video, context2, backcontext2, cw, ch);
       }, false);
-
-//      video2.addEventListener('play', function () {
-//        cw = video2.clientWidth;
-//        ch = video2.clientHeight;
-//        canvas2.width = cw;
-//        canvas2.height = ch;
-//        back2.width = cw;
-//        back2.height = ch;
-//        draw(video2, context2, backcontext2, cw, ch);
-//      }, false);
-//    }
 
   }, false);
 

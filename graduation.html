@@ -89,13 +89,14 @@
     left: -10px;
     position: fixed;
     bottom: -10vh;
+    z-index: 15;
     -webkit-animation: me 5s forwards;
   }
   .info {
     height: 80vh;
     top: 10vh;
     position: fixed;
-    right: 12vh;
+    right: -5vh;
     -webkit-animation: fade-in 5s forwards;
   }
   .banner {
@@ -108,7 +109,7 @@
 
   @media (min-width: 1500px) {
     .info {
-      right: 28vh;
+      right: 8vh;
     }
     .banner {
       right: 6vh;
@@ -124,8 +125,8 @@
 
   @media (max-width: 1200px) {
     .info {
-      height: 55vh;
-      right: 8vh;
+      height: 58vh;
+      right: 0;
     }
     .banner {
       height: 12.6vh;
@@ -146,9 +147,9 @@
   @media (max-width: 800px) {
     .info {
       height: 84vw;
-      margin-left: -40vw !important;
+      margin-left: -62.5vw !important;
       left: 50vw;
-      top: 15vw !important;
+      top: 10vw !important;
     }
     .banner {
       height: 18vw;
@@ -174,7 +175,7 @@
   <img class='seal' src="grad/seal.svg">
   <img class='me' src="grad/me.svg">
   <img class='info' src="grad/info.svg">
-  <img class='banner' src="grad/banner.svg">
+  <!--<img class='banner' src="grad/banner.svg">-->
 </div>
 </body>
 </html>
