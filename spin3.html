@@ -6,11 +6,15 @@
 </head>
 <body>
 
+<div class="one">
 <img id="s2" src="images/spin2.svg">
 <img id="s1" src="images/spin1.svg">
+</div>
 
+<div class="two">
 <img id="as2" src="images/spin2.svg">
 <img id="as1" src="images/spin1.svg">
+</div>
 
 <style>
   @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(360deg); } }
@@ -84,6 +88,24 @@
     left: 75%;
     top: 50%;
     -webkit-animation:spin1 4s linear infinite;
+  }
+
+  .one {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50vw;
+    height: 100vw;
+    overflow: hidden;
+  }
+
+  .two {
+    position: fixed;
+    left: 50vw;
+    top: 0;
+    width: 50vw;
+    height: 100vw;
+    overflow: hidden;
   }
 
 </style>
