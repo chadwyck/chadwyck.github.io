@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+<img id="s2" src="images/spin2.svg">
+<img id="s1" src="images/spin1.svg">
+
+<img id="as2" src="images/spin2.svg">
+<img id="as1" src="images/spin1.svg">
+
+<style>
+  @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(360deg); } }
+  @-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(-360deg); } }
+
+  html, body {
+    overflow: hidden;
+  }
+
+  #s1 {
+    width: 510px;
+    height: 510px;
+    margin-left: -255px;
+    margin-top: -255px;
+    position: absolute;
+    left: 26%;
+    top: 50%;
+    -webkit-animation:spin2 4s linear infinite;
+  }
+
+  #s2 {
+    width: 1202px;
+    height: 1202px;
+    margin-left: -601px;
+    margin-top: -601px;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #s3 {
+    width: 1786px;
+    height: 1786px;
+    margin-left: -893px;
+    margin-top: -893px;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #as1 {
+    width: 510px;
+    height: 510px;
+    margin-left: -255px;
+    margin-top: -255px;
+    position: absolute;
+    left: 74%;
+    top: 50%;
+    -webkit-animation:spin2 4s linear infinite;
+  }
+
+  #as2 {
+    width: 1202px;
+    height: 1202px;
+    margin-left: -601px;
+    margin-top: -601px;
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #as3 {
+    width: 1786px;
+    height: 1786px;
+    margin-left: -893px;
+    margin-top: -893px;
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+</style>
+</body>
+</html>
