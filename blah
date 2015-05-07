@@ -1,0 +1,67 @@
+module ticTacToe
+open util/ordering[GameState]
+
+abstract sig Cell{}
+one sig c00, c01, c02, c10, c11, c12, c20, c21, c22 extends Cell{}
+
+abstract sig Marker{}
+one sig X, O extends Marker{}
+
+sig GameState{
+	move: Cell -> lone Marker,
+	nextTurn: Marker
+}
+
+pred GameState.Win[mark:Marker]{
+	let move = this.move |
+		(
+			(c00+c01+c02) in move.mark or
+			(c10+c11+c12) in move.mark or
+			(c20+c21+c22) in move.mark or
+			(c00+c10+c20) in move.mark or
+			(c01+c11+c21) in move.mark or
+			(c02+c12+c22) in move.mark or
+			(c00+c11+c22) in move.mark or
+			(c02+c11+c20) in move.mark
+		)
+}
+
+pred GameState.Draw[]{
+    (all t: Marker | not this.Win[t]) and
+	(all c: Cell | c in this.move.Marker)
+}
+
+fun NextTurn[state: GameState]: Marker{
+	Marker - state.nextTurn
+}
+
+pred GameState.Init[t: Marker]{
+	no t': Marker |
+	    some this.move.t'
+	    this.nextTurn = t
+}
+
+pred Transition[s, s': GameState]{
+	one c: Cell |
+	    no s.move[c]
+	    and	s.nextTurn = s'.NextTurn
+		and (c -> s.nextTurn in s'.move)
+		and (all c': Cell - c | s'.move[c'] = s.move[c'])
+}
+
+fact GameTrace{
+	first.Init[X]
+	(all s : (GameState - last) | s.Transition[s.next]) and
+	(last.Win[X] or last.Win[O] or last.Draw)
+}
+
+run Win for exactly 1 GameState
+run Draw for exactly 1 GameState
+run Init for exactly 1 GameState
+run Transitions for exactly 2 GameState
+
+pred WinningTrace{ last.Win[X] or last.Win[O] }
+run WiningTrace for 6 GameState
+
+pred DrawTrace{last.Draw}
+run DrawTrace for 10 GameState

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+<img id="s3" src="images/spin3.svg">
+<img id="s2" src="images/spin2.svg">
+<img id="s1" src="images/spin1.svg">
+
+<style>
+  @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(360deg); } }
+  @-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(-360deg); } }
+
+  html, body {
+    overflow: hidden;
+  }
+
+  #s1 {
+    width: 1510px;
+    height: 1510px;
+    margin-left: -755px;
+    margin-top: -755px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin2 4s linear infinite;
+  }
+
+  #s2 {
+    width: 2202px;
+    height: 2202px;
+    margin-left: -1101px;
+    margin-top: -1101px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #s3 {
+    width: 2786px;
+    height: 2786px;
+    margin-left: -1393px;
+    margin-top: -1393px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+</style>
+</body>
+</html>

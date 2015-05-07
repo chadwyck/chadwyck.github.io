@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+<img id="s3" src="images/spin3.svg">
+<img id="s2" src="images/spin2.svg">
+<img id="s1" src="images/spin1.svg">
+
+<div id="c"></div>
+
+<style>
+  @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(360deg); } }
+  @-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(-360deg); } }
+
+  html, body {
+    overflow: hidden;
+  }
+
+  #s1 {
+    width: 510px;
+    height: 510px;
+    margin-left: -255px;
+    margin-top: -255px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin2 4s linear infinite;
+  }
+
+  #s2 {
+    width: 1202px;
+    height: 1202px;
+    margin-left: -601px;
+    margin-top: -601px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #s3 {
+    width: 1786px;
+    height: 1786px;
+    margin-left: -893px;
+    margin-top: -893px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #c {
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 20px;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    font-size: 26px;
+    font-family: arial, sans-serif;
+    line-height: 26px;
+    margin-left: -10px;
+    margin-top: -12px;
+  }
+</style>
+<script type="text/javascript">
+//  setTimeout(function(){
+//    document.getElementById("c").innerHTML = "h";
+//
+//  }, 1500);
+</script>
+</body>
+</html>
