@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+<div id="contain">
+  <div class="cont" id="cont1">
+    <video id="video" autoplay></video>
+    <canvas id="canvas" width="0" height="0"></canvas>
+  </div>
+  <div class="cont" id="cont2">
+    <canvas id="canvas2" width="0" height="0"></canvas>
+  </div>
+</div>
+
+<style type="text/css">
+  html, body {
+    margin: 0;
+    background-color: #000;
+    height: 100vh;
+  }
+  video {
+    min-width: 50vw;
+    min-height: 100vw;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+  }
+  .cont canvas {
+    min-width: 50vw;
+    min-height: 100vw;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+  }
+  .cont {
+    min-width: 50vw;
+    min-height: 100vw;
+    position: fixed;
+    text-align: center;
+    overflow: hidden;
+  }
+  #contain {
+    width: 100vw;
+    height: 100vh;
+  }
+  #cont1 {
+    top: -30vh;
+    left: 0;
+  }
+  #cont2 {
+    top: -30vh;
+    left: 50vw;
+  }
+</style>
+
+<script type="text/javascript">
+  // Put event listeners into place
+  window.addEventListener("DOMContentLoaded", function() {
+    // Grab elements, create settings, etc.
+    var canvas = document.getElementById("canvas"),
+      canvas2 = document.getElementById("canvas2"),
+      context = canvas.getContext("2d"),
+      context2 = canvas2.getContext("2d"),
+      video = document.getElementById("video"),
+      videoObj = { "video": true },
+      errBack = function(error) {
+        console.log("Video capture error: ", error.code);
+      };
+
+    canvas.height = document.documentElement.clientHeight * 2;
+    canvas2.height = document.documentElement.clientHeight * 2;
+
+    console.log(MediaStreamTrack.getSources(function(media_sources) {
+
+      var videoSources = [];
+
+      media_sources.forEach(function(media_source){
+        if (media_source.kind === 'video') {
+          videoSources.push(media_source);
+        }
+      });
+
+      var constraints = {};
+
+      if(videoSources.length > 1) {
+        constraints.video = {
+          optional: [{sourceId: videoSources[1].id}]
+        };
+      } else {
+        constraints.video = {
+          optional: [{sourceId: videoSources[0].id}]
+        };
+      }
+
+      // Put video listeners into place
+      if (navigator.getUserMedia) { // Standard
+        navigator.getUserMedia(constraints, videoObj, function (stream) {
+          video.src = stream;
+          video.play();
+        }, errBack);
+      } else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
+        navigator.webkitGetUserMedia(constraints, function (stream) {
+          video.src = window.webkitURL.createObjectURL(stream);
+          video.play();
+        }, errBack);
+      }
+      else if (navigator.mozGetUserMedia) { // Firefox-prefixed
+        navigator.mozGetUserMedia(constraints, videoObj, function (stream) {
+          video.src = window.URL.createObjectURL(stream);
+          video.play();
+        }, errBack);
+      }
+    }));
+
+    document.getElementById("contain").addEventListener('click', fullscreen, false);
+
+    // EFFECTS!!!
+
+
+    var back = document.createElement('canvas');
+    var backcontext = back.getContext('2d');
+
+    var back2 = document.createElement('canvas');
+    var backcontext2 = back2.getContext('2d');
+
+    context.scale(-1, 1);
+
+    var cw, ch;
+
+    video.addEventListener('play', function () {
+      cw = video.clientWidth;
+      ch = video.clientHeight;
+      canvas.width = cw;
+      canvas.height = ch;
+      canvas2.width = cw;
+      canvas2.height = ch;
+      back.width = cw;
+      back.height = ch;
+      draw(video, context, backcontext, cw, ch);
+      back2.width = cw;
+      back2.height = ch;
+      draw(video, context2, backcontext2, cw, ch);
+    }, false);
+
+  }, false);
+
+  function fullscreen() {
+    container = document.getElementById("contain");
+    if (container.requestFullscreen) {
+      container.requestFullscreen();
+    } else if (container.msRequestFullscreen) {
+      container.msRequestFullscreen();
+    } else if (container.mozRequestFullScreen) {
+      container.mozRequestFullScreen();
+    } else if (container.webkitRequestFullscreen) {
+      container.webkitRequestFullscreen();
+    }
+  }
+
+  var t = 0;
+  var n = 0;
+  var si = true;
+
+  var prevData;
+
+  function draw(v,c,bc,w,h) {
+//    if(v.paused || v.ended) return false;
+//
+//    if(si) {
+//      n = n + 0.05;
+//      if(n>=20)
+//        si = !si;
+//    } else {
+//      n = n - 0.05;
+//      if(n<=0)
+//        si = !si;
+//    }
+//
+//    t = Math.sin(n) * 40;
+//
+//    // First, draw it into the backing canvas
+//    bc.drawImage(v,0,0,w,h);
+//    // Grab the pixel data from the backing canvas
+//    var idata = bc.getImageData(0,0,w,h);
+//    var data = idata.data;
+    // Loop through the pixels, turning them grayscale
+//    var pr = 0;
+//    var pg = 0;
+//    var pb = 0;
+//    var ff = 0;
+//    var left = true;
+//    for(var i = 0; i < data.length/2; i+=4) {
+//
+//
+//      if(prevData) {
+//        pr = prevData[i] * 0.975;
+//        pg = prevData[i+1] * 0.975;
+//        pb = prevData[i+2] * 0.975;
+//      }
+//
+//      if(left) {
+//        ff = ff+4;
+//
+//        data[i] = (data[i] + t + pr) * 0.5;
+//        data[i+1] = (data[i+1] - t + pg) * 0.5;
+//        data[i+2] = (data[i+2] - t + pb) * 0.5;
+//
+//        if(ff >= (w * 2)) {
+//          left = false;
+//          ff = 0;
+//        }
+//      } else {
+//        ff = ff+4;
+//
+//        data[i] = data[i - (ff * 2)];
+//        data[i+1] = data[i+1 - (ff * 2)];
+//        data[i+2] = data[i+2 - (ff * 2)];
+//
+//        if(ff >= (w * 2)) {
+//          left = true;
+//          ff = 0
+//        }
+//      }
+//
+//      data[(data.length) - i] = data[i];
+//      data[(data.length) - i+1] = data[i+1];
+//      data[(data.length) - i+2] = data[i+2];
+//    }
+//    idata.data = data;
+//    // Draw the pixels onto the visible canvas
+//    c.putImageData(idata,0,0);
+//    // Start over!
+//    setTimeout(function() {draw(v,c,bc,w,h);}, 0);
+
+
+//    prevData = data;
+  }
+
+
+
+</script>
+
+</body>
+</html>
