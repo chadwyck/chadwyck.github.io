@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/spin/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/spin/favicon.ico" type="image/x-icon">
+  <title></title>
+</head>
+<body>
+
+<div id="top">13,024 people have shown their respect</div>
+
+<img id="s2" class="spinner" src="spin/b1.svg">
+<img id="s3" class="spinner" src="spin/b2.svg">
+<img id="s1" class="spinner" src="spin/b3.svg">
+
+<img id="chairman" src="spin/chairman.svg">
+
+<img id="cat1" class="cat" src="spin/cat3.png">
+<img id="cat2" class="cat" src="spin/cat4.png">
+
+<div id="btn" onclick="document.getElementById('chairman').src = 'spin/chairman2.svg'; setTimeout(function(){ document.getElementById('cat1').style.top = '100vh'; document.getElementById('cat2').style.top = '100vh'; document.getElementById('chairman').src = 'spin/chairman.svg'; }, 3000); document.getElementById('cat1').style.top = '69vh'; document.getElementById('cat2').style.top = '69vh'; this.style.display = 'none'; document.getElementById('mess').style.display = 'block';">show your respect</div>
+<div id="mess">Thank you for your respect</div>
+
+<style>
+  @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(-360deg); } }
+  @-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(360deg); } }
+  @-webkit-keyframes spin3 {
+    0% { -webkit-transform: rotate(20deg); }
+    100% { -webkit-transform: rotate(380deg); }
+  }
+
+  html {
+    overflow: hidden;
+    background-color: #b62929;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  #s1 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin1 4s linear infinite;
+  }
+
+  #s2 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin3 4.3s linear infinite;
+  }
+
+  #s3 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-animation:spin2 4s linear infinite;
+  }
+
+  .spinner {
+    opacity: 0.07;
+    z-index: -1;
+  }
+
+  #chairman {
+    z-index: 100;
+    height: 60vh;
+    margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #btn {
+    padding: 10px;
+    max-width: 300px;
+    background-color: #7c1c1c;
+    font-size: 26px;
+    line-height: 40px;
+    z-index: 101;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: background-color 0.2s ease;
+  }
+
+  #mess {
+    padding: 10px;
+    font-size: 26px;
+    line-height: 40px;
+    z-index: 101;
+    color: #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    display: none;
+  }
+
+  #btn:hover {
+    cursor: pointer;
+    background-color: #6a1818;
+  }
+
+  #btn:active {
+    cursor: pointer;
+    background-color: #581818;
+  }
+
+  #top {
+    padding: 10px;
+    font-size: 26px;
+    line-height: 40px;
+    z-index: 101;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+  }
+
+  #cat2 {
+    right: 5vw;
+  }
+
+  #cat1 {
+    left: 5vw;
+  }
+
+  .cat {
+    position: absolute;
+    top: 100vh;
+    transition: top 3s ease;
+  }
+
+</style>
+</body>
+</html>

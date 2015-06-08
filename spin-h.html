@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+<img id="s1" src="spin/c4.svg">
+<img id="s2" src="spin/c5.svg">
+
+<input type="number" step="0.1" onchange="setSpeed(this.value)" />
+
+<style>
+  @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(-360deg); } }
+  @-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(360deg); } }
+  @-webkit-keyframes spin3 {
+    0% { -webkit-transform: rotate(20deg); }
+    100% { -webkit-transform: rotate(380deg); }
+  }
+
+  html, body {
+    overflow: hidden;
+  }
+
+  #s1 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    -webkit-animation:spin1 2s linear infinite;
+  }
+
+  #s2 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    -webkit-animation:spin3 2.1s linear infinite;
+  }
+
+  #s3 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    -webkit-animation:spin2 2s linear infinite;
+  }
+
+  #s4 {
+    width: 2000px;
+    height: 2000px;
+    margin-left: -1000px;
+    margin-top: -1000px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    -webkit-animation:spin1 2.2s linear infinite;
+  }
+
+</style>
+<script type="text/javascript">
+  function setSpeed(speed) {
+    console.log(document.getElementById('s1').style);
+    document.getElementById('s1').style.webkitAnimation = "spin1 "+speed+"s linear infinite";
+    document.getElementById('s2').style.webkitAnimation = "spin3 "+speed+".1s linear infinite";
+    document.getElementById('s3').style.webkitAnimation = "spin2 "+speed+"s linear infinite";
+    document.getElementById('s4').style.webkitAnimation = "spin1 "+speed+".2s linear infinite";
+  }
+</script>
+</body>
+</html>
