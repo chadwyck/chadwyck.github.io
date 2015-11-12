@@ -1,0 +1,50 @@
+<html><head lang="en">
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+
+<div id="paperwhite"></div>
+<div id="console"></div>
+
+<style>
+  html, body {
+          padding: 0;
+              margin: 0;
+          }
+          
+        #paperwhite {
+            width: 100vw;
+            height: 50vw;
+            margin: 50px auto;
+            background-position: 0 0;
+            background-image: url("thing_left.png");
+            background-size: auto 100%;
+        }
+</style>
+<script type="text/javascript">
+  $(document).ready(function() {
+    //Find our div containers in the DOM
+      var dataContainerOrientation = document.getElementById('dataContainerOrientation');
+      var dataContainerMotion = document.getElementById('dataContainerMotion');
+          
+      //Check for support for DeviceOrientation event
+      if(window.DeviceOrientationEvent) {
+        window.addEventListener('deviceorientation', function(event) {
+                var alpha =  Math.abs(event.alpha);
+                var beta =  Math.abs(event.beta);
+                var gamma = Math.abs(event.gamma);
+            var gamma2 = Math.round((3*event.gamma+90)/10) + 4;
+
+            var size = window.innerWidth / 2;
+            $("#paperwhite").css("background-position","" + gamma2*size +"px 0"); 
+
+            }, false);
+      }
+    });
+
+</script>
+
+</body></html>
