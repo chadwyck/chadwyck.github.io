@@ -155,6 +155,7 @@
 
     }
 
+    debugger;
     $.fn[pluginName] = function(options) {
         return this.each(function() {
             if (!$.data(this, pluginName)) {
@@ -167,6 +168,7 @@
 
 $(function() {
                     setTimeout(function(){
+                        debugger;
                     var widget = $('#tilter').view360Widget({
                         imageUrl: 'http://chadwickjones.com/thebes.png',
                         steps: 36,
