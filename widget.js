@@ -169,3 +169,17 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
     };
 
 })(jQuery, window, document);
+
+$(function() {
+                    setTimeout(function(){
+                    var widget = $('#tilter').view360Widget({
+                        imageUrl: 'http://chadwickjones.com/thebes.png',
+                        steps: 36,
+                        startingSpriteStage: 0,
+                        displayMode: 'fill',
+                        rotateMode: 'with-device',
+                        rotateTime: 6000,
+                        autoRotateDir: 'ltr'
+                    }).data('view360Widget');
+                    }, 5000);
+                });
