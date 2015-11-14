@@ -213,7 +213,7 @@ var View360Widget = (function($, window, document, undefined) {
         }
     };
 
-})(jQuery, window, document);
+})($, window, document);
 
 
 $(function() {
