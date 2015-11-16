@@ -43,6 +43,7 @@ var View360Widget = (function($, window, document, undefined) {
             $container.addClass('view360widget');
             $container.css({
                 'background-image': 'url(' + options.imageUrl + ')',
+                'background-position': '0 0'
             });
 
             switch (options.displayMode.toLowerCase()) {
@@ -75,11 +76,12 @@ var View360Widget = (function($, window, document, undefined) {
             $cardboardIcon.on('click', function(event) {
                 event.preventDefault();
 
-
+                if (!$cardboardOverlay)
+                    _createCardboardOverlayElements();
 
                 if (!isInCardboardMode) {
                     isInCardboardMode = true;
-                    _showCardboardModeOverlay();
+                    _showCardboardOverlayMessage();
                 }
             });
         }
@@ -87,24 +89,40 @@ var View360Widget = (function($, window, document, undefined) {
         function _createCardboardOverlayElements() {
             $cardboardOverlay = $('<div>').attr({
                 'class': 'view360widget-overlay',
-            }).appendTo(document);
+            }).css('display', 'none').appendTo($(document.body));
+
+            $cardboardOverlay.css({
+                'background-image': 'url(' + options.imageUrl + ')',
+                'background-size': 'auto 90%', // Hard coded
+                'background-position': '0 0'
+            });
 
             $cardboardOverlayMessage = $('<div>').attr({
                 'class': 'view360widget-overlay-message',
             }).html(
                 '<h1>Google Cardboard</h1>' +
-                '<p>Google Cardboard is cool, and stuff.</p>'
-            ).appendTo($cardboardOverlay);
+                '<p>Google Cardboard is cool, and stuff.</p>' +
+                '<p>Tilt your device to landscape mode to view</p>'
+            ).css('display', 'none').appendTo($(document.body));
 
-            
+            $cardboardOverlayClose = $('<div>').attr({
+                'class': 'view360widget-overlay-close'
+            }).html('<h1>X</h1>').appendTo($cardboardOverlayMessage);
+
+            $cardboardOverlayClose.on('click', function(e) {
+                _hideCardboardOverlay();
+            });
         }
 
-        function _showCardboardOverlay() {
-
+        function _showCardboardOverlayMessage() {
+            $cardboardOverlayMessage.fadeIn('slow');
         }
 
         function _hideCardboardOverlay() {
+            isInCardboardMode = false;
 
+            $cardboardOverlay.fadeOut('slow');
+            $cardboardOverlayMessage.fadeOut('slow');
         }
 
         function _setSpriteStage(spriteStage) {
@@ -114,11 +132,25 @@ var View360Widget = (function($, window, document, undefined) {
 
             $container.css({
                 'background-position': spriteStagePosition +'px 0'
-            }); 
+            });
+
+            if (options.enableGoogleCardboard && isInCardboardMode) {
+                $cardboardOverlay.css({
+                    'background-position': spriteStagePosition +'px 0'
+                });
+            } 
         }
 
         function _rotateWithDevice(alpha, beta, gamma) {
-            var spriteStage = (Math.round(gamma / (options.tiltRange / options.steps)) + options.startingSpriteStage) % options.steps;
+            var spriteStage;
+            if (!isInCardboardMode) {
+                spriteStage = (Math.round(gamma / (options.tiltRange / options.steps)) + options.startingSpriteStage) % options.steps;
+            }
+            else {
+                spriteStage = (Math.round(beta / (360 / options.steps)) + options.startingSpriteStage) % options.steps;
+                console.log('blah');
+            }
+
             _setSpriteStage(spriteStage);
 
             // log(
@@ -159,9 +191,26 @@ var View360Widget = (function($, window, document, undefined) {
             }, (time / options.steps));
         }
 
+        function _handleCardboardModeTiltEvent() {
+            $cardboardOverlay.fadeIn('slow');
+            $cardboardOverlayMessage.fadeOut('fast');
+
+            var halfX = screen.width / 2;
+
+            $cardboardOverlay.css({
+                'background-image': 'url(' + options.imageUrl + ')',
+                'background-size': 'auto ' + halfX + 'px',
+                'background-position': '0 0'
+            });
+        }
+
         // Attach events
         window.addEventListener('deviceorientation', function(event) {
-            if (isInCardboardMode || Math.abs(event.gamma) >= options.tiltRange) {
+            if (isInCardboardMode  && screen.orientation.type.indexOf('landscape') > -1) {
+                _handleCardboardModeTiltEvent(); 
+            }
+
+            if (Math.abs(event.gamma) >= options.tiltRange) {
                 event.preventDefault();
                 return;
             }
@@ -180,6 +229,14 @@ var View360Widget = (function($, window, document, undefined) {
             }
 
         }, false);
+
+        // window.screen.addEventListener('orientationchange', function(event) {
+        //     debugger;
+        //     if (isInCardboardMode) {
+        //         _handleCardboardModeTiltEvent(); 
+        //     }
+
+        // }, false);
 
         if (options.rotateMode === 'auto') {
             _autoRotate(options.autoRotateDir, options.rotateTime);
@@ -208,6 +265,7 @@ var View360Widget = (function($, window, document, undefined) {
                     break;
             }
         };
+
     }
 
     return {
