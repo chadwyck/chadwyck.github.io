@@ -108,7 +108,7 @@ var View360Widget = (function($, window, document, undefined) {
 
             $cardboardOverlayClose = $('<div>').attr({
                 'class': 'view360widget-overlay-close'
-            }).html('<h1>X</h1>').appendTo($cardboardOverlayMessage);
+            }).html('<h1>+</h1>').appendTo($cardboardOverlayMessage);
 
             $cardboardOverlayClose.on('click', function(e) {
                 _hideCardboardOverlay();
