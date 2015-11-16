@@ -42,10 +42,9 @@
 .view360widget-overlay-message {
   display: block;
   position: fixed;
-  top: 25%;
+  top: 35%;
   left: 10%;
   width: 80vw;
-  height: 50vh;
   padding: 0px;
   background-color: whitesmoke;
   box-sizing: border-box;
