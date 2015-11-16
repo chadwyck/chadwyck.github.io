@@ -170,7 +170,7 @@ var View360Widget = (function($, window, document, undefined) {
                 spriteStage = (Math.round(gamma / (options.tiltRange * 2 / options.steps)) + options.startingSpriteStage) % options.steps;
             }
             else {
-                spriteStage = (Math.round(alpha / (360 / options.steps)) + options.startingSpriteStage) % options.steps;
+                spriteStage = (Math.round(gamma / (360 / options.steps)) + options.startingSpriteStage) % options.steps;
             }
 
             _setSpriteStage(spriteStage);
