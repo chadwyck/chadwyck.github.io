@@ -138,6 +138,8 @@ var View360Widget = (function($, window, document, undefined) {
             });
 
             if (options.enableGoogleCardboard && isInCardboardMode) {
+                var containerWidth = window.innerWidth/2;
+                var spriteStagePosition = spriteStage * containerWidth;
                 $cardboardOverlay.css({
                     'background-position': spriteStagePosition +'px 0'
                 });
