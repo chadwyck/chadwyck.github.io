@@ -131,17 +131,17 @@ var View360Widget = (function($, window, document, undefined) {
         }
 
         function _showCardboardOverlayMessage() {
-            $cardboardOverlayMessage.fadeIn('slow');
-            $cardboardBehind.fadeIn('slow');
+            $cardboardOverlayMessage.fadeIn('fast');
+            $cardboardBehind.fadeIn('fast');
         }
 
         function _hideCardboardOverlay() {
             isInCardboardMode = false;
             isInCardboardMessage = false;
 
-            $cardboardOverlay.fadeOut('slow');
-            $cardboardOverlayMessage.fadeOut('slow');
-            $cardboardBehind.fadeOut('slow');
+            $cardboardOverlay.fadeOut('fast');
+            $cardboardOverlayMessage.fadeOut('fast');
+            $cardboardBehind.fadeOut('fast');
         }
 
         function _setSpriteStage(spriteStage) {
@@ -214,7 +214,7 @@ var View360Widget = (function($, window, document, undefined) {
         }
 
         function _handleCardboardModeTiltEvent() {
-            $cardboardOverlay.fadeIn('slow');
+            $cardboardOverlay.fadeIn('fast');
             $cardboardOverlayMessage.fadeOut('fast');
             $cardboardBehind.fadeOut('fast');
 
