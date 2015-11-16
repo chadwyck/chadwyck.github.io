@@ -232,14 +232,13 @@ var View360Widget = (function($, window, document, undefined) {
             if (isInCardboardMessage && screen.orientation.type.indexOf('landscape') > -1) {
                 isInCardboardMode = true;
                 _handleCardboardModeTiltEvent(); 
-                return;
             }
 
             if (isInCardboardMode && screen.orientation.type.indexOf('portrait') > -1) {
                 _hideCardboardOverlay();
             }
 
-            if (Math.abs(event.gamma) >= options.tiltRange) {
+            if (!sInCardboardMode && Math.abs(event.gamma) >= options.tiltRange) {
                 event.preventDefault();
                 return;
             }
