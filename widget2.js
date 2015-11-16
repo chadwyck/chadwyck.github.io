@@ -292,6 +292,7 @@ $(function() {
         rotateMode: 'with-device',
         rotateTime: 3000,
         autoRotateDir: 'ltr',
+        spriteWidth: 300,
 
         enableGoogleCardboard: true
     });
