@@ -60,6 +60,14 @@
   margin: 1em;
   text-indent: 0;
 }
+.view360widget-behind {
+  position: fixed;
+  background: rgba(0,0,0,0.7);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
 .view360widget-overlay-message h1 {
   background: #eaeaea;
   margin: 0;
@@ -67,6 +75,7 @@
   font-size: medium;
   border-bottom: 1px solid #cdcdcd;
   border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px 4px 0 0;
 }
 .view360widget-overlay-close {
   position: absolute;

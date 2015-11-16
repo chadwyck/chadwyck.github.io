@@ -33,7 +33,7 @@ var View360Widget = (function($, window, document, undefined) {
         var currentSpriteStage = options.startingSpriteStage;
 
         var $cardboardIcon;
-        var $cardboardOverlay, $cardboardOverlayMessage, $cardboardOverlayClose;
+        var $cardboardOverlay, $cardboardOverlayMessage, $cardboardOverlayClose, $cardboardBehind;
         var $cardboardImageLeft, $cardboardImageRight;
         var isInCardboardMode = false;
         var isInCardboardMessage = false;
@@ -89,6 +89,11 @@ var View360Widget = (function($, window, document, undefined) {
         }
 
         function _createCardboardOverlayElements() {
+
+            $cardboardBehind = $('<div>').attr({
+                'class': 'view360widget-behind',
+            }).css('display', 'none').appendTo($(document.body));
+
             $cardboardOverlay = $('<div>').attr({
                 'class': 'view360widget-overlay',
             }).css('display', 'none').appendTo($(document.body));
@@ -105,7 +110,7 @@ var View360Widget = (function($, window, document, undefined) {
                 '<h1>Google Cardboard</h1>' +
                 '<p>Google Cardboard is cool, and stuff.</p>' +
                 '<p>Tilt your device to landscape mode to view</p>'
-            ).css('display', 'none').appendTo($(document.body));
+            ).css('display', 'none').appendTo($cardboardBehind);
 
             $cardboardOverlayClose = $('<div>').attr({
                 'class': 'view360widget-overlay-close'
@@ -118,6 +123,7 @@ var View360Widget = (function($, window, document, undefined) {
 
         function _showCardboardOverlayMessage() {
             $cardboardOverlayMessage.fadeIn('slow');
+            $cardboardBehind.fadeIn('slow');
         }
 
         function _hideCardboardOverlay() {
@@ -126,6 +132,7 @@ var View360Widget = (function($, window, document, undefined) {
 
             $cardboardOverlay.fadeOut('slow');
             $cardboardOverlayMessage.fadeOut('slow');
+            $cardboardBehind.fadeOut('slow');
         }
 
         function _setSpriteStage(spriteStage) {
@@ -200,6 +207,7 @@ var View360Widget = (function($, window, document, undefined) {
         function _handleCardboardModeTiltEvent() {
             $cardboardOverlay.fadeIn('slow');
             $cardboardOverlayMessage.fadeOut('fast');
+            $cardboardBehind.fadeOut('fast');
 
             var halfX = (window.innerWidth / 2);
 
