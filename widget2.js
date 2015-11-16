@@ -196,7 +196,7 @@ var View360Widget = (function($, window, document, undefined) {
             $cardboardOverlay.fadeIn('slow');
             $cardboardOverlayMessage.fadeOut('fast');
 
-            var halfX = screen.width / 2;
+            var halfX = screen.height / 2;
 
             $cardboardOverlay.css({
                 'background-image': 'url(' + options.imageUrl + ')',
