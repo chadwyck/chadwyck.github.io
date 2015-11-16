@@ -309,7 +309,7 @@ var View360Widget = (function($, window, document, undefined) {
 
 $(function() {
     var widget = View360Widget.init($('#tilter'), {
-        imageUrl: 'http://chadwickjones.com/thebes.png',
+        imageUrl: 'http://chadwickjones.com/ford.png',
         steps: 36,
         startingSpriteStage: 0,
         displayMode: 'fill',
