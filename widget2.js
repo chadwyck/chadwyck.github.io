@@ -12,6 +12,7 @@ var View360Widget = (function($, window, document, undefined) {
         imageUrl: '',
         steps: 0,
         startingSpriteStage: 0,
+        endHalfway: false,
         spriteWidth: 0, // required if in 'fixed' displayMode
         displayMode: 'fill', // or 'fixed'
         rotateMode: 'with-device', // or 'tilt-motion' or 'auto'
@@ -166,7 +167,7 @@ var View360Widget = (function($, window, document, undefined) {
         function _rotateWithDevice(alpha, beta, gamma) {
             var spriteStage;
             if (!isInCardboardMode) {
-                spriteStage = (Math.round(gamma / (options.tiltRange / options.steps)) + options.startingSpriteStage) % options.steps;
+                spriteStage = (Math.round(gamma / (options.tiltRange * 2 / options.steps)) + options.startingSpriteStage) % options.steps;
             }
             else {
                 spriteStage = (Math.round(beta / (360 / options.steps)) + options.startingSpriteStage) % options.steps;
