@@ -123,6 +123,10 @@ var View360Widget = (function($, window, document, undefined) {
             $cardboardBehind.on('click', function(e) {
                 _hideCardboardOverlay();
             });
+
+            $cardboardOverlayMessage.on('click', function(e) {
+                e.stopPropagation();
+            });
         }
 
         function _showCardboardOverlayMessage() {
