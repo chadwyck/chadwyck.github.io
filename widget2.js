@@ -238,7 +238,7 @@ var View360Widget = (function($, window, document, undefined) {
                 _hideCardboardOverlay();
             }
 
-            if (!sInCardboardMode && Math.abs(event.gamma) >= options.tiltRange) {
+            if (!isInCardboardMode && Math.abs(event.gamma) >= options.tiltRange) {
                 event.preventDefault();
                 return;
             }
