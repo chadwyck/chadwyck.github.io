@@ -36,6 +36,7 @@ var View360Widget = (function($, window, document, undefined) {
         var $cardboardOverlay, $cardboardOverlayMessage, $cardboardOverlayClose;
         var $cardboardImageLeft, $cardboardImageRight;
         var isInCardboardMode = false;
+        var isInCardboardMessage = false;
 
         (function _initialize() {
             options.tiltRange = Math.min(Math.abs(options.tiltRange), 90);
@@ -80,8 +81,8 @@ var View360Widget = (function($, window, document, undefined) {
                 if (!$cardboardOverlay)
                     _createCardboardOverlayElements();
 
-                if (!isInCardboardMode) {
-                    isInCardboardMode = true;
+                if (!isInCardboardMessage) {
+                    isInCardboardMessage = true;
                     _showCardboardOverlayMessage();
                 }
             });
@@ -121,6 +122,7 @@ var View360Widget = (function($, window, document, undefined) {
 
         function _hideCardboardOverlay() {
             isInCardboardMode = false;
+            isInCardboardMessage = false;
 
             $cardboardOverlay.fadeOut('slow');
             $cardboardOverlayMessage.fadeOut('slow');
@@ -210,11 +212,12 @@ var View360Widget = (function($, window, document, undefined) {
 
         // Attach events
         window.addEventListener('deviceorientation', function(event) {
-            if (isInCardboardMode  && screen.orientation.type.indexOf('landscape') > -1) {
+            if (isInCardboardMessage && screen.orientation.type.indexOf('landscape') > -1) {
+                isInCardboardMode = true;
                 _handleCardboardModeTiltEvent(); 
             }
 
-            if (isInCardboardMode  && screen.orientation.type.indexOf('portrait') > -1) {
+            if (isInCardboardMode && screen.orientation.type.indexOf('portrait') > -1) {
                 _hideCardboardOverlay();
             }
 
