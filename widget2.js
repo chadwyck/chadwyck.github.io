@@ -75,6 +75,7 @@ var View360Widget = (function($, window, document, undefined) {
 
             $cardboardIcon.on('click', function(event) {
                 event.preventDefault();
+                event.stopPropagation();
 
                 if (!$cardboardOverlay)
                     _createCardboardOverlayElements();
