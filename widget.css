@@ -78,6 +78,8 @@
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+.view360widget-overlay-close h2 {
   font-size: 30px;
 }
 .view360widget-overlay-close:hover {
