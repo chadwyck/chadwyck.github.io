@@ -211,6 +211,10 @@ var View360Widget = (function($, window, document, undefined) {
                 _handleCardboardModeTiltEvent(); 
             }
 
+            if (isInCardboardMode  && screen.orientation.type.indexOf('portrait') > -1) {
+                _hideCardboardOverlay();
+            }
+
             if (Math.abs(event.gamma) >= options.tiltRange) {
                 event.preventDefault();
                 return;

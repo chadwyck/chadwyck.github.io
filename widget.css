@@ -8,11 +8,11 @@
 }
 .view360widget .view360widget-google-cardboard-icon {
   position: absolute;
-  bottom: -10px;
-  right: -10px;
+  top: 0px;
+  left: -67px;
   background-image: url(http://chadwickjones.com/CardboardIcon.png);
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   background-size: contain;
   background-repeat: no-repeat;
   transition: opacity 1000ms ease;
@@ -25,7 +25,7 @@
 }
 @media only screen and (orientation: portrait) {
   .view360widget .view360widget-google-cardboard-icon {
-    opacity: 0.5;
+    opacity: 0.3;
     pointer-events: all;
   }
 }
