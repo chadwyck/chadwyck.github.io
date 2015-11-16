@@ -131,6 +131,8 @@ var View360Widget = (function($, window, document, undefined) {
             var containerWidth = $container.width();
             var spriteStagePosition = spriteStage * containerWidth;
 
+            console.log(containerWidth+" | "+spriteStage +" === "+spriteStagePosition);
+
             $container.css({
                 'background-position': spriteStagePosition +'px 0'
             });
