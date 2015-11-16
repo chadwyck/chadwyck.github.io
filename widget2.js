@@ -107,9 +107,9 @@ var View360Widget = (function($, window, document, undefined) {
             $cardboardOverlayMessage = $('<div>').attr({
                 'class': 'view360widget-overlay-message',
             }).html(
-                '<h1>Google Cardboard</h1>' +
-                '<p>Google Cardboard is cool, and stuff.</p>' +
-                '<p>Tilt your device to landscape mode to view</p>'
+                '<h1>Virtual Reality 360 view</h1>' +
+                '<p>If you have a phone screen virtual reality device such as a Google Cardboard or Oculus Gear VR, you can view a more immersive preview.</p>' +
+                '<p>Tilt your device to landscape mode to view.</p>'
             ).css('display', 'none').appendTo($cardboardBehind);
 
             $cardboardOverlayClose = $('<div>').attr({
