@@ -149,7 +149,6 @@ var View360Widget = (function($, window, document, undefined) {
             }
             else {
                 spriteStage = (Math.round(beta / (360 / options.steps)) + options.startingSpriteStage) % options.steps;
-                console.log('blah');
             }
 
             _setSpriteStage(spriteStage);
@@ -196,7 +195,7 @@ var View360Widget = (function($, window, document, undefined) {
             $cardboardOverlay.fadeIn('slow');
             $cardboardOverlayMessage.fadeOut('fast');
 
-            var halfX = (screen.width / 2) - 60;
+            var halfX = (window.innerWidth / 2);
 
             $cardboardOverlay.css({
                 'background-image': 'url(' + options.imageUrl + ')',
