@@ -138,10 +138,10 @@ var View360Widget = (function($, window, document, undefined) {
             });
 
             if (options.enableGoogleCardboard && isInCardboardMode) {
-                var containerWidth = window.innerWidth/2;
-                var spriteStagePosition = spriteStage * containerWidth;
+                var containerWidth2 = window.innerWidth/2;
+                var spriteStagePosition2 = spriteStage * containerWidth2;
                 $cardboardOverlay.css({
-                    'background-position': spriteStagePosition +'px 0'
+                    'background-position': spriteStagePosition2 +'px 0'
                 });
             } 
         }
