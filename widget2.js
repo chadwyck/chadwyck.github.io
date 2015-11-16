@@ -289,6 +289,6 @@ $(function() {
         rotateTime: 3000,
         autoRotateDir: 'ltr',
 
-        enableGoogleCardboard: false
+        enableGoogleCardboard: true
     });
 });
