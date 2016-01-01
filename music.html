@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/JDHwtC5iv1U?version=3&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+
+<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A1233306552%3Aplaylist%3A5aOgGgW1ub8COVDYa719sn" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+
+<style>
+  
+</style>
+<script type="text/javascript">
+$('.html5-main-video').playbackRate = 0.9;
+$('.html5-main-video').currentTime = 2.6;
+
+var isLooping = false;
+
+function loopCheck(vid) {
+  console.log(vid.currentTime);
+  if(!isLooping && vid.currentTime >= 4 && vid.currentTime < 5.1) {
+    isLooping = true;
+    console.log("starting Loop");
+    loop(vid);
+  }
+}
+
+function loop(vid) {
+  console.log(vid.currentTime)
+  if(vid.currentTime >= 5.0) {
+    vid.currentTime = 2.6;
+    isLooping = false;
+    return;
+  }
+  loop(vid);
+}
+
+function onYouTubePlayerReady(playerid) {
+  console.log("here it is: "+playerid);
+}
+
+$('.html5-main-video').ontimeupdate = function() {loopCheck($('.html5-main-video'))};
+</script>
+</body>
+</html>
