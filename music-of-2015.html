@@ -2,96 +2,155 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
-<!-- <img id="s2" src="spin/b1.svg">
-<img id="s3" src="spin/b2.svg">
-<img id="s1" src="spin/b3.svg">
-<img id="s4" src="spin/b3.svg"> -->
 
+<!-- <div id="youtube-blur">
+  <iframe id="youtube" src="https://www.youtube.com/embed/eNQq_SbVLXY" frameborder="0" allowfullscreen></iframe>
+</div>
+ -->
 <div class="album">
   <img class="pic" src="./albums/bus.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+    <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/HHM62T8TLHA" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="tag bye" id="tag10">
     <div class="words num">10</div>
-    <div class="words artist">Busdriver</div>
-    <div class="words title">Thumbs</div>
+    <div class="words-right">
+      <div class="words artist">Busdriver</div>
+      <div class="words title">Thumbs</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/leon.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+    <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/lYl4PVkfW38" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="tag bye">
     <div class="words num">9</div>
-    <div class="words artist">Leon Bridges</div>
-    <div class="words title">Coming Home</div>
+    <div class="words-right">
+      <div class="words artist">Leon Bridges</div>
+      <div class="words title">Coming Home</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/bea.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+    <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/fPjPRoJD7IA" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="tag bye">
     <div class="words num">8</div>
-    <div class="words artist">Beach House</div>
-    <div class="words title">Thank Your Lucky Stars</div>
+    <div class="words-right">
+      <div class="words artist">Beach House</div>
+      <div class="words title">Thank Your Lucky Stars</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/sha.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+    <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/OMstlKC403c" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="tag bye">
     <div class="words num">7</div>
-    <div class="words artist">Shamir</div>
-    <div class="words title">Rachet</div>
+    <div class="words-right">
+      <div class="words artist">Shamir</div>
+      <div class="words title">Rachet</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/dea.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+    <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/MJ2Oj57OJYA" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="tag bye">
     <div class="words num">6</div>
-    <div class="words artist">Death Grips</div>
-    <div class="words title">The Powers That B</div>
+    <div class="words-right">
+      <div class="words artist">Death Grips</div>
+      <div class="words title">The Powers That B</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/thun.jpg">
-  <div class="tag">
+    <div class="youtube-blur bye">
+      <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/GNCd_ERZvZM" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <div class="tag bye">
     <div class="words num">5</div>
-    <div class="words artist">Thundercat</div>
-    <div class="words title">The Beyond / Where the Giants Roam</div>
+    <div class="words-right">
+      <div class="words artist">Thundercat</div>
+      <div class="words title">The Beyond / Where the Giants Roam</div>
+    </div>
   </div>
 </div>
 <div class="album">
-  <img class="pic" src="./albums/tam.jpg">
-  <div class="tag">
+  <img class="pic" src="./albums/tam.jpg" onclick="$('.spinner').css('opacity','0.16');$('.spinner').css('z-index','100');">
+  <div class="youtube-blur bye">
+      <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/Qay6t5UpnhM" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <div class="tag bye">
     <div class="words num">4</div>
-    <div class="words artist">Tame Impala</div>
-    <div class="words title">Currents</div>
+    <div class="words-right">
+      <div class="words artist">Tame Impala</div>
+      <div class="words title">Currents</div>
+    </div>
+  </div>
+  <div class="spin-box">
+    <img class="spinner" id="s2" src="spin/b1.svg">
+    <img class="spinner" id="s3" src="spin/b2.svg">
+    <img class="spinner" id="s1" src="spin/b3.svg">
+    <img class="spinner" id="s4" src="spin/b3.svg">
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/kend.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+      <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/mdXSxAVs7Tc" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <div class="tag bye">
     <div class="words num">3</div>
-    <div class="words artist">Kendrick Lamar</div>
-    <div class="words title">To Pimp A Butterfly</div>
+    <div class="words-right">
+      <div class="words artist">Kendrick Lamar</div>
+      <div class="words title">To Pimp A Butterfly</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/fatherJ.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+      <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/v-N-btkUuVw" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <div class="tag bye">
     <div class="words num">2</div>
-    <div class="words artist">Father John Misty</div>
-    <div class="words title">I Love You, Honeybear</div>
+    <div class="words-right">
+      <div class="words artist">Father John Misty</div>
+      <div class="words title">I Love You, Honeybear</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <img class="pic" src="./albums/sufj.jpg">
-  <div class="tag">
+  <div class="youtube-blur bye">
+      <iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/lJJT00wqlOo" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <div class="tag bye">
     <div class="words num">1</div>
-    <div class="words artist">Sufjan Stevens</div>
-    <div class="words title">Carrie & Lowell</div>
+    <div class="words-right">
+      <div class="words artist">Sufjan Stevens</div>
+      <div class="words title">Carrie & Lowell</div>
+    </div>
   </div>
 </div>
 <div class="album">
   <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A1233306552%3Aplaylist%3A1hgrqVgFWQcP1kiM8VSUBB" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+  <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A1233306552%3Aplaylist%3A5aOgGgW1ub8COVDYa719sn" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 </div>
 <style>
   @-webkit-keyframes spin1 { 100% { -webkit-transform: rotate(-360deg); } }
@@ -101,6 +160,21 @@
     100% { -webkit-transform: rotate(380deg); }
   }
 
+@-webkit-keyframes colorcycle {
+  0% {
+    background-color: rgba(0,255,255,0.1);
+  }
+  33% {
+    background-color: rgba(255,0,255,0.1);
+  }
+  66% {
+    background-color: rgba(255,255,0,0.1);
+  }
+  100% {
+    background-color: rgba(0,255,255,0.1);
+  }
+}
+
   html, body {
     margin: 0;
     background: black;
@@ -109,8 +183,13 @@
 
   .album {
     width: 100vw;
-    max-width: 1200px;
+    height: 100vw;
+    max-height: 1000px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
+    overflow: hidden;
   }
 
   .pic {
@@ -124,8 +203,13 @@
     left: 40px;
     padding: 10px;
     text-align: left;
+    z-index: 60;
     border-radius: 10px;
     background: rgba(0,0,0,0.7);
+  }
+
+  #tag10 {
+    z-index: 160;
   }
 
   .words {
@@ -135,27 +219,58 @@
     font-size: 20px;
   }
 
+  .words-right {
+    float: right;
+    margin-left: 46px;
+  }
+
   .num {
-    font-size: 30px;
+    font-size: 40px;
+    margin: 16px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  #youtube {
-    width: 110vw;
-    height: 110vh;
+  #tag10 .words-right {
+    margin-left: 70px;
   }
 
-  #youtube-blur {
-    width: 110vw;
-    height: 110vh;
+  .youtube {
+    height: 120vw;
+    width: 240vw;
+  }
+
+  .youtube-blur {
     position: absolute;
     z-index: 50;
-    top: -5vh;
-    left: -5vw;
-    -webkit-filter: blur(5px);
+    top: -10vw;
+    left: -70vw;
+    opacity: 0.6;
+    -webkit-filter: blur(0px);
     -moz-filter: blur(5px);
     -ms-filter: blur(5px);
     -o-filter: blur(5px);
     filter: blur(5px);
+  }
+
+  @media (min-width: 1000px) {
+    .youtube {
+      height: 1200px;
+      width: 2400px;
+    }
+    .youtube-blur {
+      top: -100px;
+      left: -700px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tag {
+      top: 20px;
+      margin-right: 10px;
+      left: 10px;
+    }
   }
 
   .songs {
@@ -164,7 +279,7 @@
     text-align: center;
     width: 100vw;
     top: 40vh;
-    position: fixed;
+    position: absolute;
     font-family: sans-serif;
   }
 
@@ -172,52 +287,50 @@
     margin: 10px;
   }
 
+  .spinner {
+    opacity: 0;
+    z-index: -100;
+    margin-left: -960px;
+    margin-top: -860px;
+  }
+
+  .bye {
+    display: none;
+  }
 
   #s1 {
     width: 2000px;
     height: 2000px;
-    margin-left: -1000px;
-    margin-top: -1000px;
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 100;
-    -webkit-animation:spin1 2s linear infinite;
+    -webkit-animation:spin1 2s linear infinite, colorcycle 5s linear infinite;
   }
 
   #s2 {
     width: 2000px;
     height: 2000px;
-    margin-left: -1000px;
-    margin-top: -1000px;
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 100;
     -webkit-animation:spin3 2.1s linear infinite;
   }
 
   #s3 {
     width: 2000px;
     height: 2000px;
-    margin-left: -1000px;
-    margin-top: -1000px;
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 100;
     -webkit-animation:spin2 2s linear infinite;
   }
 
   #s4 {
     width: 2000px;
     height: 2000px;
-    margin-left: -1000px;
-    margin-top: -1000px;
     position: absolute;
     left: 50%;
     top: 50%;
-    z-index: 100;
     -webkit-animation:spin1 2.2s linear infinite;
   }
 
@@ -230,6 +343,41 @@
     document.getElementById('s3').style.webkitAnimation = "spin2 "+speed+"s linear infinite";
     document.getElementById('s4').style.webkitAnimation = "spin1 "+speed+".2s linear infinite";
   }
+  $( document ).ready(function() {
+    $('.tag').toggleClass("bye");
+    $( ".spinner" ).on( "click", function() {
+      $( '.spinner' ).css( "display", "none" );
+    });
+    $( ".tag" ).on( "click", function() {
+      $(".youtube-blur").remove();
+      var iden = dict[$(this).parent().find(".num").html()];
+      console.log(iden);
+      var $div = $('<div class="youtube-blur"><iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/'+iden+'?autoplay=1" frameborder="0"></iframe></div>');
+      $(this).parent().append($div);
+    });
+    $( ".pic" ).on( "click", function() {
+      $(".youtube-blur").remove();
+      var iden = dict[$(this).parent().find(".num").html()];
+      console.log(iden);
+      var $div = $('<div class="youtube-blur"><iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/'+iden+'?autoplay=1" frameborder="0"></iframe></div>');
+      $(this).parent().append($div);
+    });
+  });
+
+
+  var dict = {};
+
+  dict['1'] = "lJJT00wqlOo";
+  dict['2'] = "v-N-btkUuVw";
+  dict['3'] = "mdXSxAVs7Tc";
+  dict['4'] = "Qay6t5UpnhM";
+  dict['5'] = "GNCd_ERZvZM";
+  dict['6'] = "MJ2Oj57OJYA";
+  dict['7'] = "OMstlKC403c";
+  dict['8'] = "fPjPRoJD7IA";
+  dict['9'] = "lYl4PVkfW38";
+  dict['10'] = "HHM62T8TLHA";
+
 </script>
 </body>
 </html>
