@@ -281,25 +281,6 @@
     filter: blur(5px);
   }
 
-  @media (min-width: 1000px) {
-    .youtube {
-      height: 1200px;
-      width: 2400px;
-    }
-    .youtube-blur {
-      top: -100px;
-      left: -700px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .tag {
-      top: 20px;
-      margin-right: 10px;
-      left: 10px;
-    }
-  }
-
   .songs {
     color: rgba(255, 255, 255, 0.81);
     z-index: 100;
@@ -371,6 +352,30 @@
     left: 50%;
     top: 50%;
     -webkit-animation:spin1 2.2s linear infinite;
+  }
+
+  @media (min-width: 1000px) {
+    .youtube {
+      height: 1200px;
+      width: 2400px;
+    }
+    .youtube-blur {
+      top: -100px;
+      left: -700px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tag {
+      top: 20px;
+      margin-right: 10px;
+      left: 10px;
+    }
+
+    .spinner {
+      margin-left: -980px;
+      margin-top: -940px;
+    }
   }
 
 </style>
