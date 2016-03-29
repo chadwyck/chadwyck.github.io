@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<div class="album" id="title-sec">
+  <div class="title">Albums I enjoyed in 2015</div>
+  <div class="title-sub">Click any of the albums to hear something from it</div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/bus.jpg">
+  <div class="tag bye" id="tag10">
+    <div class="words num">10</div>
+    <div class="words-right">
+      <div class="words artist">Busdriver</div>
+      <div class="words title">Thumbs</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/leon.jpg">
+  <div class="tag bye">
+    <div class="words num">9</div>
+    <div class="words-right">
+      <div class="words artist">Leon Bridges</div>
+      <div class="words title">Coming Home</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/bea.jpg">
+  <div class="tag bye">
+    <div class="words num">8</div>
+    <div class="words-right">
+      <div class="words artist">Beach House</div>
+      <div class="words title">Thank Your Lucky Stars</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/sha.jpg">
+  <div class="tag bye">
+    <div class="words num">7</div>
+    <div class="words-right">
+      <div class="words artist">Shamir</div>
+      <div class="words title">Rachet</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/dea.jpg">
+  <div class="tag bye">
+    <div class="words num">6</div>
+    <div class="words-right">
+      <div class="words artist">Death Grips</div>
+      <div class="words title">The Powers That B</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/thun.jpg">
+  <div class="tag bye">
+    <div class="words num">5</div>
+    <div class="words-right">
+      <div class="words artist">Thundercat</div>
+      <div class="words title">The Beyond / Where the Giants Roam</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/tam.jpg">
+  <div class="tag bye">
+    <div class="words num">4</div>
+    <div class="words-right">
+      <div class="words artist">Tame Impala</div>
+      <div class="words title">Currents</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/kend.jpg">
+  <div class="tag bye">
+    <div class="words num">3</div>
+    <div class="words-right">
+      <div class="words artist">Kendrick Lamar</div>
+      <div class="words title">To Pimp A Butterfly</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/fatherJ.jpg">
+  <div class="tag bye">
+    <div class="words num">2</div>
+    <div class="words-right">
+      <div class="words artist">Father John Misty</div>
+      <div class="words title">I Love You, Honeybear</div>
+    </div>
+  </div>
+</div>
+<div class="album">
+  <img class="pic" src="./albums/sufj.jpg">
+  <div class="tag bye">
+    <div class="words num">1</div>
+    <div class="words-right">
+      <div class="words artist">Sufjan Stevens</div>
+      <div class="words title">Carrie & Lowell</div>
+    </div>
+  </div>
+</div>
+  <div class="tracks">Tracks that defined my year<div class="tracks-sub">Not all released in 2015, and in no particular order</div></div>
+  <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3A1233306552%3Aplaylist%3A5aOgGgW1ub8COVDYa719sn" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+<style>
+@-webkit-keyframes colorcycle {
+  0% {
+    background-color: rgba(0,255,255,0.1);
+  }
+  33% {
+    background-color: rgba(255,0,255,0.1);
+  }
+  66% {
+    background-color: rgba(255,255,0,0.1);
+  }
+  100% {
+    background-color: rgba(0,255,255,0.1);
+  }
+}
+
+  html, body {
+    margin: 0;
+    background: black;
+    text-align: center;
+  }
+
+  body {
+    padding-bottom: 10px;
+  }
+
+  .album {
+    width: 100vw;
+    height: 100vw;
+    max-height: 1000px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #title-sec {
+    max-height: 400px;
+  }
+
+  .title {
+    color: white;
+    font-family: sans-serif;
+    margin: 10vw;
+    margin-top: 25vh;
+    margin-bottom: 0;
+    font-size: 40px;
+  }
+
+  .title-sub {
+    color: #7B7B7B;
+    font-family: sans-serif;
+    margin: 10vw;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .pic {
+    width: 100%;
+    margin: 0;
+  }
+
+  .tag {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    padding: 10px;
+    text-align: left;
+    z-index: 60;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.7);
+  }
+
+  #tag10 {
+    z-index: 160;
+  }
+
+  .words {
+    font-family: sans-serif;
+    color: white;
+    margin: 5px;
+    font-size: 20px;
+  }
+
+  .words-right {
+    float: right;
+    margin-left: 46px;
+  }
+
+  .num {
+    font-size: 40px;
+    margin: 16px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #tag10 .words-right {
+    margin-left: 70px;
+  }
+
+  .youtube {
+    height: 120vw;
+    width: 240vw;
+  }
+
+  .youtube-blur {
+    position: absolute;
+    z-index: 50;
+    top: -10vw;
+    left: -70vw;
+    opacity: 0.6;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    filter: blur(5px);
+  }
+
+  .songs {
+    color: rgba(255, 255, 255, 0.81);
+    z-index: 100;
+    text-align: center;
+    width: 100vw;
+    top: 40vh;
+    position: absolute;
+    font-family: sans-serif;
+  }
+
+  .song {
+    margin: 10px;
+  }
+
+  .tracks {
+    color: white;
+    font-family: sans-serif;
+    font-size: 24px;
+    margin: 20px;
+  }
+
+  .tracks-sub {
+    font-size: 14px;
+    color: #aaa;
+  }
+
+  .bye {
+    display: none;
+  }
+
+  @media (min-width: 1000px) {
+    .youtube {
+      height: 1200px;
+      width: 2400px;
+    }
+    .youtube-blur {
+      top: -100px;
+      left: -700px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tag {
+      top: 20px;
+      margin-right: 10px;
+      left: 10px;
+    }
+  }
+
+</style>
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $('.tag').toggleClass("bye");
+    $( ".tag" ).on( "click", function() {
+      $(".youtube-blur").remove();
+      var iden = dict[$(this).parent().find(".num").html()];
+      console.log(iden);
+      var $div = $('<div class="youtube-blur"><iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/'+iden+'?autoplay=1" frameborder="0"></iframe></div>');
+      $(this).parent().append($div);
+    });
+    $( ".pic" ).on( "click", function() {
+      $(".youtube-blur").remove();
+      var iden = dict[$(this).parent().find(".num").html()];
+      console.log(iden);
+      var $div = $('<div class="youtube-blur"><iframe class="youtube" width="2000" height="1000" src="https://www.youtube.com/embed/'+iden+'?autoplay=1" frameborder="0"></iframe></div>');
+      $(this).parent().append($div);
+    });
+  });
+
+
+  var dict = {};
+
+  dict['1'] = "lJJT00wqlOo";
+  dict['2'] = "v-N-btkUuVw";
+  dict['3'] = "mdXSxAVs7Tc";
+  dict['4'] = "Qay6t5UpnhM";
+  dict['5'] = "GNCd_ERZvZM";
+  dict['6'] = "MJ2Oj57OJYA";
+  dict['7'] = "OMstlKC403c";
+  dict['8'] = "fPjPRoJD7IA";
+  dict['9'] = "lYl4PVkfW38";
+  dict['10'] = "HHM62T8TLHA";
+
+</script>
+</body>
+</html>
